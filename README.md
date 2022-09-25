@@ -13,12 +13,9 @@ My goals after understanding C# is to go through Unity. For each of the list, it
 
 ## Mammoth (Course for C#)
 
-https://rextester.com/ZOVAT66306
-
 If I want to test C#, check out "rextester.com" ? Nah.
 Entry points varies through system to system
 
 ## TODO:
 
 - [ ] Restructure directories
-- [ ]
