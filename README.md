@@ -19,3 +19,4 @@ Entry points varies through system to system
 ## TODO:
 
 - [ ] Restructure directories
+- [ ] Having one solution for the repo to work all together (and avoid obj/bin folders)
