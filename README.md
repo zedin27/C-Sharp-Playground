@@ -22,6 +22,13 @@ My goals after understanding C# is to go through Unity. For each of the list, it
 If I want to test C#, check out "rextester.com" ? Nah.
 Entry points varies through OS to OS.
 
+## Resources
+
+- http://www.csharphelp.com/
+- http://gameprogrammingpatterns.com/game-loop.html#the-pattern
+- http://what-when-how.com/Tutorial/topic-103/C-Game-Programming-For-Serious-Game-Creation-97.html
+- https://www.codementor.io/@dewetvanthomas/tutorial-game-loop-for-c-128ovxgrig
+
 ## TODO:
 
 - [ ] Restructure directories
