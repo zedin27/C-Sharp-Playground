@@ -32,13 +32,16 @@ namespace Mammoth
 			List<string> Monsters = new List<string>();
 			int[] nums = new int[10]; //Static Array
 			int[,] array2d = new int[2, 2] {{1, 2}, {3, 4}}; //2D Array
-			int[,,] array3d = new int[2, 2, 3] {{{1, 2, 3},{4, 5, 6}},{{7, 8, 9},{10, 11, 12}}}; //3D Arrays
+			int[,,] array3d = new int[2, 2, 3] {
+				{{1, 2, 3},{4, 5, 6}},
+				{{7, 8, 9},{10, 11, 12}}
+				}; //3D Arrays
 			int[][] array_jagged = new int [3][]; //Jagged Arrays (list of lists)
 			array_jagged[0] = new int[3] {1, 2, 3};
 			array_jagged[1] = new int[7] {4, 5, 6, 7, 8, 9, 10};
 			array_jagged[2] = new int[1] {11};
 			Random r = new Random(); //RNG
-			
+
 			Bosses.Add("Dragon");
 			Bosses.Add("Mordekaiser");
 			Bosses.Add("Gorilla");

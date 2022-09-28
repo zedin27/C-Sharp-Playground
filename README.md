@@ -12,7 +12,7 @@ This shows the learning experience from C# before jumping into Unity.
 
 My goals after understanding C# is to go through Unity. For each of the list, it will contain some notes in regards of the following:
 
-- [ ] Mammoth (Course for C# would take roughly 15-20hrs)
+- [ ] Mammoth and game Loop text game(Course for C# would take roughly 15-20hrs)
 - [ ] Flappy Bird (10hrs-20hrs)
 - [ ] Tetris (10hrs-20hrs)
 - [ ] Rubik's Cube (30hrs with Unity and learning linear algebra and matrices)
