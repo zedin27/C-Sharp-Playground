@@ -16,11 +16,11 @@ namespace Structures
 
 	public struct Monster
 	{
-		public string name_;
-		public int scare_;
-		public int size_;
+		public string? name_;
+		public int? scare_;
+		public double? size_;
 
-		public Monster(string name, int scare, int size)
+		public Monster(string name, double? size = null, int? scare = null)
 		{
 			name_ = name;
 			scare_ = scare;
@@ -35,24 +35,31 @@ namespace Structures
 				Console.WriteLine("No name monster. Give name first");
 				return ;
 			}
-			Console.WriteLine("Size: " + size_);
-			Console.WriteLine("Scare: " + scare_);
+			if (size_ >= 0 || scare_ > 0)
+			{
+				Console.WriteLine("Size: " + size_);
+				Console.WriteLine("Scare: " + scare_);
+			}
+			else
+			{
+				Console.WriteLine("error: Monster's scare or/and size is less than 1. Needs a number higher than 1");
+				return ;
+			}
 		}
 
 	}
 	//Structure exercise
-	// public class myMain
-	// {
-	// 	public static void Main(string[] args)
-	// 	{
-	// 		Monster Mike = new Monster("Mike", 10, 15);
-	// 		// Console.WriteLine(Mike.name_);
-	// 		Mike.print();
-
-	// 		Monster Jack = new Monster();
-	// 		Jack.print();
-	// 	}
-	// }
+	public class myMain
+	{
+		public static void Main(string[] args)
+		{
+			Monster Mike = new Monster("Mike", 1);
+			Monster Jack = new Monster();
+			// Console.WriteLine(Mike.name_);
+			Mike.print();
+			Jack.print();
+		}
+	}
 	
 
 	//Array testing
@@ -82,58 +89,58 @@ namespace Structures
 	// }
 	
 	//Enum exercise
-	public class myMain
-	{
-		enum Direction
-		{
-			INVALID_DIRECTION,
-			Left,
-			Up,
-			Right,
-			Down
-		}
-		public static void Main(string[] args)
-		{
-			// Direction dir_ = new Direction();
+	// public class myMain
+	// {
+	// 	enum Direction
+	// 	{
+	// 		INVALID_DIRECTION,
+	// 		Left,
+	// 		Up,
+	// 		Right,
+	// 		Down
+	// 	}
+	// 	public static void Main(string[] args)
+	// 	{
+	// 		// Direction dir_ = new Direction();
 		
-			// string dir;
+	// 		// string dir;
 
-			// while(true)
-			// {
-			// 	dir = Console.ReadKey().Key;
-			// 	if (dir == "1")
-			// 		Console.WriteLine("Go Left");
-			// 	else if (dir == "2")
-			// 		Console.WriteLine("Go Up");
-			// 	else if (dir == "3")
-			// 		Console.WriteLine("Go Right");
-			// 	else if (dir == "4")
-			// 		Console.WriteLine("Go Down");
-			// 	else
-			// 		Console.WriteLine("Invalid direction value");
-			// }
-			ConsoleKeyInfo cki;
+	// 		// while(true)
+	// 		// {
+	// 		// 	dir = Console.ReadKey().Key;
+	// 		// 	if (dir == "1")
+	// 		// 		Console.WriteLine("Go Left");
+	// 		// 	else if (dir == "2")
+	// 		// 		Console.WriteLine("Go Up");
+	// 		// 	else if (dir == "3")
+	// 		// 		Console.WriteLine("Go Right");
+	// 		// 	else if (dir == "4")
+	// 		// 		Console.WriteLine("Go Down");
+	// 		// 	else
+	// 		// 		Console.WriteLine("Invalid direction value");
+	// 		// }
+	// 		ConsoleKeyInfo cki;
 
-			Console.TreatControlCAsInput = true;
+	// 		Console.TreatControlCAsInput = true;
 
-			Console.WriteLine("Press any combination of CTL, ALT, and SHIFT, and a console key.");
-			Console.WriteLine("Press the Escape (Esc) key to quit: \n");
-			while (true)
-			{
-				cki = Console.ReadKey();
-				Console.Write(" --- You've pressed: ");
-				if ((cki.Modifiers & ConsoleModifiers.Alt) != 0)
-					Console.Write("ALT+");
-				if ((cki.Modifiers & ConsoleModifiers.Shift) != 0)
-					Console.Write("SHIFT+");
-				if ((cki.Modifiers & ConsoleModifiers.Control) != 0)
-				{
-					Console.Write("CTRL+");
-					Console.Write("Exiting program now...");
-					return ;
-				}
-				Console.WriteLine(cki.Key.ToString());
-			}
-		}
-	}
+	// 		Console.WriteLine("Press any combination of CTL, ALT, and SHIFT, and a console key.");
+	// 		Console.WriteLine("Press the Escape (Esc) key to quit: \n");
+	// 		while (true)
+	// 		{
+	// 			cki = Console.ReadKey();
+	// 			Console.Write(" --- You've pressed: ");
+	// 			if ((cki.Modifiers & ConsoleModifiers.Alt) != 0)
+	// 				Console.Write("ALT+");
+	// 			if ((cki.Modifiers & ConsoleModifiers.Shift) != 0)
+	// 				Console.Write("SHIFT+");
+	// 			if ((cki.Modifiers & ConsoleModifiers.Control) != 0)
+	// 			{
+	// 				Console.Write("CTRL+");
+	// 				Console.Write("Exiting program now...");
+	// 				return ;
+	// 			}
+	// 			Console.WriteLine(cki.Key.ToString());
+	// 		}
+	// 	}
+	// }
 }
