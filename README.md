@@ -12,26 +12,27 @@ This shows the learning experience from C# before jumping into Unity.
 
 My goals after understanding C# is to go through Unity. For each of the list, it will contain some notes in regards of the following:
 
-- [ ] Mammoth and game Loop text game(Course for C# would take roughly 15-20hrs)
-- [ ] Flappy Bird (10hrs-20hrs)
-- [ ] Tetris (10hrs-20hrs)
-- [ ] Rubik's Cube (30hrs with Unity and learning linear algebra and matrices)
+- [x] Mammoth and game Loop text game(Course for C# would take roughly 15-20hrs)
+- [ ] Linear Algebra (introduction to game development and general understanding and comfortable ~30hrs-40hrs)
+- [ ] Flappy Bird (~20hrs)
+- [ ] Tetris (~20hrs)
+- [ ] Rubik's Cube (~30hrs with Unity and learning linear algebra and matrices)
 
 ## Mammoth (Course for C#)
 
 If I want to test C#, check out "rextester.com" ? Nah.
 Entry points varies through OS to OS.
+Use this guide as a base, but not too seriously...
 
 ## Resources
 
-- http://www.csharphelp.com/
-- http://gameprogrammingpatterns.com/game-loop.html#the-pattern
-- http://what-when-how.com/Tutorial/topic-103/C-Game-Programming-For-Serious-Game-Creation-97.html
+- General and good http://www.csharphelp.com/
+- Game Loop: http://gameprogrammingpatterns.com/game-loop.html#the-pattern
 - https://www.codementor.io/@dewetvanthomas/tutorial-game-loop-for-c-128ovxgrig
+- http://what-when-how.com/Tutorial/topic-103/C-Game-Programming-For-Serious-Game-Creation-97.html
 
 ## TODO:
 
-- [ ] Restructure directories
-- [ ] Having one solution for the repo to work all together (and avoid obj/bin folders)
+- [ ] Create a vector math, transformation classes
 - [ ] Practice virtual, abstract, and override methods
-- [ ]
+- [ ] Restructure directories
