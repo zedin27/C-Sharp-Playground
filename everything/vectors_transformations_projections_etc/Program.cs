@@ -6,14 +6,58 @@
 ** A-B:		Create a GUI with the implementation
 **			Add code and interactive with inputs (readkey?)
 **			Read it from a file?
-**
+** Matrix topics:
+**				https://www.codeproject.com/Articles/5262037/Csharp-Implementation-of-Basic-Linear-Algebra-Conc
+**				
 ** note -> A-B above and beyond™
 */
 
-
+using System.Text.Encodings;
+using Pastel;
 
 namespace procedural_files_etc
 {
+	public struct Matrix
+	{
+		double M11;
+		double M12;
+		double M13;
+		double M14;
+		double M21;
+		double M22;
+		double M23;
+		double M24;
+		double M31;
+		double M32;
+		double M33;
+		double M34;
+		double M41;
+		double M42;
+		double M43;
+		double M44;
+		Matrix			(double m11, double m12, double m13, double m14,
+						double m21, double m22, double m23, double m24,
+						double m31, double m32, double m33, double m34,
+						double m41, double m42, double m43, double m44)
+		{
+			this.M11 = m11;
+			this.M12 = m12;
+			this.M13 = m13;
+			this.M14 = m14;
+			this.M21 = m21;
+			this.M22 = m22;
+			this.M23 = m23;
+			this.M24 = m24;
+			this.M31 = m31;
+			this.M32 = m32;
+			this.M33 = m33;
+			this.M34 = m34;
+			this.M41 = m41;
+			this.M42 = m42;
+			this.M43 = m43;
+			this.M44 = m44;
+		}
+	}
 	public class VectorMaths
 	{
 		public double x;
@@ -127,6 +171,28 @@ namespace procedural_files_etc
 			value3.z = (value1.x * value2.y) - (value1.y * value2.x);
 			return value3;
 		}
+		public static VectorMaths Reflect(VectorMaths value1, VectorMaths normal)
+		{
+			VectorMaths reflectedVector = new VectorMaths();
+			double dotProduct;
+			
+			dotProduct = Dot(value1, normal);
+			reflectedVector.x = value1.x - (2.0f * normal.x) * dotProduct;
+			reflectedVector.y = value1.y - (2.0f * normal.y) * dotProduct;
+			reflectedVector.z = value1.z - (2.0f * normal.z) * dotProduct;
+			return reflectedVector;
+		}
+		public static void Reflect(ref VectorMaths value1, VectorMaths normal, out VectorMaths result)
+		{
+			result = new VectorMaths();
+			double dotProduct;
+
+			dotProduct = ((value1.x * normal.x) + (value1.y * normal.y) + (value1.z * normal.z));
+			result.x = value1.x - (2.0f * normal.x) * dotProduct;
+			result.y = value1.y - (2.0f * normal.y) * dotProduct;
+			result.z = value1.z - (2.0f * normal.z) * dotProduct;
+
+		}
 		public void finish()
 		{
 			Console.WriteLine("Finish. Press enter to continue...");
@@ -137,7 +203,10 @@ namespace procedural_files_etc
 	
 	public class Transofmrations
 	{
+		// public Matrix(double m11, double m12)
+		// {
 
+		// }
 	}
 	public class Projections
 	{
@@ -184,6 +253,11 @@ namespace procedural_files_etc
 		// }
 		public static void Main(string[] args)
 		{
+			var stdout = Console.OpenStandardOutput();
+			var con = new StreamWriter(stdout, System.Text.Encoding.ASCII);
+			con.AutoFlush = true;
+			Console.SetOut(con);
+
 			VectorMaths v1 = new VectorMaths(2, 6);
 			VectorMaths v2 = new VectorMaths(10.15, 0.02);
 			VectorMaths v3 = new VectorMaths();
@@ -206,13 +280,18 @@ namespace procedural_files_etc
 			double res3 = VectorMaths.Dot(v12, v13);
 			VectorMaths res1 = VectorMaths.Cross(v4, v5);
 
-
+			Console.WriteLine("~~~~Vectors~~~~");
 			Console.WriteLine($"Magnitude of vector is: {mag_val}");
 			Console.WriteLine($"Add vectors: ({res.x}, {res.y})");
 			Console.WriteLine($"Substract vectors: ({res0.x}, {res0.y})");
 			Console.WriteLine($"Multiply vectors: ({res2.x}, {res2.y}, {res2.z})");
 			Console.WriteLine($"Dot Product: {res3}");
 			Console.WriteLine($"Cross Product: ({res1.x}, {res1.y}, {res1.z})");
+
+			Console.WriteLine("~~~~Transformations~~~~");
+
+			Console.WriteLine("\x1b[36mTEST\x1b[0m");
+			Console.WriteLine("colorize me".Pastel("#1E90FF"));
 		}
 	}
 }
