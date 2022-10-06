@@ -2,8 +2,8 @@
 ** Resources
 ** public, private, and protected inherit derivations example (in C++): https://www.programiz.com/cpp-programming/public-protected-private-inheritance
 ** override property: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/override
-** Arrow thingy (called lambda expression/statement): https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions?redirectedfrom=MSDN
-** and this: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#code-try-0
+** Arrow thingy (called lambda expression/statement):	https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions?redirectedfrom=MSDN
+** 														https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#code-try-0
 */
 
 namespace Classes_test
