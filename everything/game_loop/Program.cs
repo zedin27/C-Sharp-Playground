@@ -12,15 +12,13 @@
 ** Checking if a file/directory exists: https://www.c-sharpcorner.com/UploadFile/dbeniwal321/check-if-a-file-exists-in-C-Sharp/
 ** Creating a CLI command for afplay: https://khalidabuhakmeh.com/play-audio-files-with-net
 ** Snake and Ladders idea for game loop: https://www.codeproject.com/Questions/1089109/I-need-a-gameturn-method-and-help-with-main-game-l
+** Cool video of someone progressing his game dev skills: https://youtu.be/XxBZw2FEdK0
 ** TODO:	Tiny functions for File existance and directory or even OO.
 **			Have a file creation after giving an input
 **			afplay after time is up
 */
 
 using System.Timers;
-using System.Media;
-using System.Threading;
-using SFML;
 
 namespace game_loop
 {
@@ -58,24 +56,29 @@ namespace game_loop
 			Console.WriteLine("\n\n\nTime's up!\n\n");
 			throw new NotImplementedException("Time's up!");
 		}
-		// public static void PlaySound(string filename)
-		// {
-		// 	var buffer = new SFML.Audio.SoundBuffer(filename);
-		// 	var sound = new SFML.Audio.Sound(buffer);
-		// 	sound.Play();
-		// }
-		private static void PlaySound()
+		public static void PlaySound(string filename)
 		{
-			SFML.Audio.SoundBuffer Buffer = new SFML.Audio.SoundBuffer("/Users/ztisnes/Desktop/C-Sharp-Playground/everything/game_loop/youdied.mp3");
-			// SFML.Audio.Sound Sound = new SFML.Audio.Sound(Buffer);
-			Console.WriteLine(Buffer);
-			// Sound.Play();
+			var buffer = new SFML.Audio.SoundBuffer(filename);
+			var sound = new SFML.Audio.Sound(buffer);
+			sound.Play();
 		}
+		// private static void PlaySound()
+		// {
+		// 	SFML.Audio.SoundBuffer Buffer = new SFML.Audio.SoundBuffer("/Users/ztisnes/Desktop/C-Sharp-Playground/everything/game_loop/youdied.wav");
+		// 	SFML.Audio.Sound Sound = new SFML.Audio.Sound(Buffer);
+		// 	Console.WriteLine(Buffer);
+		// 	Sound.Play();
+		// }
+		
+		// private NAudio.Wave.WaveFileReader wave = null;
+		// private NAudio.Wave.DirectSoundOut output = null;
 		static void Main(string[] args)
 		{
-			// System.Media.SoundPlayer youdied = new System.Media.SoundPlayer(@"youdied.wav");
+			// SFML.Audio.SoundBuffer youdied = new SFML.Audio.SoundBuffer("youdied.wav");
 			// youdied.Play();
-			// PlaySound();
+			PlaySound("youdied.wav");
+			// wave = new NAudio.Wave.WaveFileReader("youdied.mp3");
+
 			System.Timers.Timer newTimer = new System.Timers.Timer(1000);
 			System.Timers.Timer stopTimer = new System.Timers.Timer(6000);
 			stopTimer.Elapsed += async ( sender, e) => await HandleTimer();

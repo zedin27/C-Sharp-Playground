@@ -171,28 +171,28 @@ namespace procedural_files_etc
 			value3.z = (value1.x * value2.y) - (value1.y * value2.x);
 			return value3;
 		}
-		public static VectorMaths Reflect(VectorMaths value1, VectorMaths normal)
-		{
-			VectorMaths reflectedVector = new VectorMaths();
-			double dotProduct;
+		// public static VectorMaths Reflect(VectorMaths value1, VectorMaths normal) //This is for 3D matrices though
+		// {
+		// 	VectorMaths reflectedVector = new VectorMaths();
+		// 	double dotProduct;
 			
-			dotProduct = Dot(value1, normal);
-			reflectedVector.x = value1.x - (2.0f * normal.x) * dotProduct;
-			reflectedVector.y = value1.y - (2.0f * normal.y) * dotProduct;
-			reflectedVector.z = value1.z - (2.0f * normal.z) * dotProduct;
-			return reflectedVector;
-		}
-		public static void Reflect(ref VectorMaths value1, VectorMaths normal, out VectorMaths result)
-		{
-			result = new VectorMaths();
-			double dotProduct;
+		// 	dotProduct = Dot(value1, normal);
+		// 	reflectedVector.x = value1.x - (2.0f * normal.x) * dotProduct;
+		// 	reflectedVector.y = value1.y - (2.0f * normal.y) * dotProduct;
+		// 	reflectedVector.z = value1.z - (2.0f * normal.z) * dotProduct;
+		// 	return reflectedVector;
+		// }
+		// public static void Reflect(ref VectorMaths value1, VectorMaths normal, out VectorMaths result)
+		// {
+		// 	result = new VectorMaths();
+		// 	double dotProduct;
 
-			dotProduct = ((value1.x * normal.x) + (value1.y * normal.y) + (value1.z * normal.z));
-			result.x = value1.x - (2.0f * normal.x) * dotProduct;
-			result.y = value1.y - (2.0f * normal.y) * dotProduct;
-			result.z = value1.z - (2.0f * normal.z) * dotProduct;
+		// 	dotProduct = ((value1.x * normal.x) + (value1.y * normal.y) + (value1.z * normal.z));
+		// 	result.x = value1.x - (2.0f * normal.x) * dotProduct;
+		// 	result.y = value1.y - (2.0f * normal.y) * dotProduct;
+		// 	result.z = value1.z - (2.0f * normal.z) * dotProduct;
 
-		}
+		// }
 		public void finish()
 		{
 			Console.WriteLine("Finish. Press enter to continue...");

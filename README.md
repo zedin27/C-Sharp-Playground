@@ -13,7 +13,7 @@ This shows the learning experience from C# before jumping into Unity.
 My goals after understanding C# is to go through Unity. For each of the list, it will contain some notes in regards of the following:
 
 - [x] Mammoth and game Loop text game(Course for C# would take roughly 15-20hrs)
-- [ ] Linear Algebra (introduction to game development and general understanding and comfortable ~30hrs-40hrs)
+- [ ] Linear Algebra (introduction to game development and general understanding ~30hrs-40hrs)
 - [ ] Flappy Bird (~20hrs)
 - [ ] Tetris (~20hrs)
 - [ ] Rubik's Cube (~30hrs with Unity and learning linear algebra and matrices)
@@ -26,6 +26,7 @@ Use this guide as a base, but not too seriously...
 
 ## Resources
 
+Some Resources can be found in each project folder worked on too.
 - General and good http://www.csharphelp.com/
 - Game Loop: http://gameprogrammingpatterns.com/game-loop.html#the-pattern
 - https://www.codementor.io/@dewetvanthomas/tutorial-game-loop-for-c-128ovxgrig
