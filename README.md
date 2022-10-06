@@ -28,13 +28,13 @@ Use this guide as a base, but not too seriously...
 
 Some Resources can be found in each project folder worked on too.
 
-- [Debugging in C# .NET framework](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations)
 - [General and good](http://www.csharphelp.com/)
-- Game Loop: http://gameprogrammingpatterns.com/game-loop.html#the-pattern
-- https://www.codementor.io/@dewetvanthomas/tutorial-game-loop-for-c-128ovxgrig
-- http://what-when-how.com/Tutorial/topic-103/C-Game-Programming-For-Serious-Game-Creation-97.html
-- [Game Engine Architecture](https://archive.org/details/game-engine-architecture/page/vi/mode/2up)
+- [Debugging in C# .NET framework](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations)
 - [Garbage Collector in C#](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/)
+- [Game Loop](http://gameprogrammingpatterns.com/game-loop.html#the-pattern)
+- https://www.codementor.io/@dewetvanthomas/tutorial-game-loop-for-c-128ovxgrig
+- [Random: C-Game Programming For Serious Game Creation](http://what-when-how.com/Tutorial/topic-103/C-Game-Programming-For-Serious-Game-Creation-97.html)
+- [Game Engine Architecture](https://archive.org/details/game-engine-architecture/page/vi/mode/2up)
 
 ## TODO:
 
