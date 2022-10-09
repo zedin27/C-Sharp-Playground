@@ -38,7 +38,7 @@ Some Resources can be found in each project folder worked on too.
 - [Random: C-Game Programming For Serious Game Creation](http://what-when-how.com/Tutorial/topic-103/C-Game-Programming-For-Serious-Game-Creation-97.html)
 - [Game Engine Architecture](https://archive.org/details/game-engine-architecture/page/vi/mode/2up)
 
-## TODO:
+## TODO
 
 - [ ] Focus in game physics with Unity
 - [x] Create a vector math, transformation classes
