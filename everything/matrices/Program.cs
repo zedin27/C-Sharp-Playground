@@ -6,23 +6,29 @@
 using System;
 namespace Vectors_Matrices
 {	
-	public class Matrices
+	public class Matrix
 	{
 		public int x;
 		public int y;
 		public int z;
-		public Matrices()
+		private int[,] array2D;
+		private int[,,] array3D;
+		public Matrix()
 		{
-			Console.WriteLine("Matrices constructor created...");
+			Console.WriteLine("Matrix constructor created...");
 		}
-		public Matrices(int value)
+		public Matrix(int value)
 		{
 			this.x = value;
 			this.y = value;
 			this.z = value;
+			this.array2D = new int[x,y];
+			this.array3D = new int[x, y, z];
 		}
-		public Matrices(int x, int y)
+		public Matrix(int x, int y)
 		{
+			this.x = x;
+			this.y = y;
 			int[,] array2D = new int[x, y];
 			Console.WriteLine("2D Created with [{0}, {1}] dimensions", x, y);
 			for (int i = 0; i < x; i++)
@@ -33,7 +39,11 @@ namespace Vectors_Matrices
 					array2D[i, j] = Convert.ToInt32(Console.ReadLine());
 				}
 			}
-
+		}
+		public void ToConsole()
+		{
+			if (array2D == null || array2D.Length <= 0)
+				return ;
 			for (int i = 0; i < x; i++)
 			{
 				for (int j = 0; j < y; j++)
@@ -46,7 +56,7 @@ namespace Vectors_Matrices
 				Console.WriteLine();
 			}
 		}
-		public Matrices(int x, int y, int z)
+		public Matrix(int x, int y, int z)
 		{
 			this.x = x;
 			this.y = y;
@@ -64,8 +74,9 @@ namespace Vectors_Matrices
 			Console.Write("Insert your y value for the 2D matrix: ");
 			int y = Convert.ToInt32(Console.ReadLine());
 
-			Matrices myMatrix = new Matrices();
-			Matrices my2DMatrix = new Matrices(x, y);
+			Matrix myMatrix = new Matrix();
+			Matrix my2DMatrix = new Matrix(x, y);
+			my2DMatrix.ToConsole();
 		}
 	}
 }
