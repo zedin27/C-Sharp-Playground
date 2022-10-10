@@ -44,3 +44,5 @@ Some Resources can be found in each project folder worked on too.
 - [x] Create a vector math, transformation classes
 - [ ] Practice virtual, abstract, and override methods
 - [ ] Restructure directories
+
+Holy shit, no code because I got trolled!
