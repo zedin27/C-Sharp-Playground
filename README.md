@@ -25,6 +25,10 @@ If I want to test C#, check out "rextester.com" ? Nah.
 Entry points varies through OS to OS.
 Use this guide as a base, but not too seriously...
 
+## Unity summary notes
+
+MonoBehaviors and read about their documentation in general to have a good grasp of what is going on.
+
 ## Resources
 
 Some Resources can be found in each project folder worked on too.
@@ -41,6 +45,10 @@ Some Resources can be found in each project folder worked on too.
 ## TODO
 
 - [ ] Focus in game physics with Unity
+- [ ] Ask for HR help in the following:
+      contract extension
+      gym proof
 - [x] Create a vector math, transformation classes
+- [ ]
 - [ ] Practice virtual, abstract, and override methods
 - [ ] Restructure directories
