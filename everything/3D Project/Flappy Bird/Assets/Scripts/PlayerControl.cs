@@ -10,9 +10,12 @@ public class PlayerControl : MonoBehaviour
     public bool isOnGround = false;
     public bool gameOver = false;
     private float upperBound = 9;
+    private UIManager UIManagerScript;
     // Start is called before the first frame update
     void Start()
     {
+        // UIManagerScript = GameObject.Find("Score_text").GetComponent<UIManager>();
+        // .Find("Tomato").GetComponent<PlayerControl>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
     }
@@ -20,10 +23,11 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jumpForce = 4;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (playerRb.velocity.y < 0)
+                playerRb.velocity = Vector3.zero;
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
         if (transform.position.y > upperBound)
         {
@@ -37,6 +41,21 @@ public class PlayerControl : MonoBehaviour
         {
             Debug.Log("Game Over!");
             gameOver = true;
+        }
+        // float entered = collision.gameObject.transform.position.x / 2;
+        // else if (collision.gameObject.CompareTag("Pipe") && entered)
+        // {
+
+        // }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.tag);
+        if (other.tag == "Pipe")
+        {
+            Debug.Log("Went through the pipe");
+            // Debug.Log(UIManagerScript);
+            // UIManagerScript.AddScore(1);
         }
     }
 }

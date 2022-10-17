@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 935852030489741026}
   - component: {fileID: 935852030489741029}
   - component: {fileID: 2307064935779967883}
+  - component: {fileID: -5444074463317014054}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Pipe
@@ -95,7 +96,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935852030489741028}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -140,5 +141,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a0cee13507424a9b816ced16957411f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5444074463317014054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935852030489741028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abf8d2e639404a259536c55edc4a25b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

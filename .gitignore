@@ -504,3 +504,4 @@ crashlytics-build.properties
 ._DS*
 ._swp*
 *.swp
+*.blend
