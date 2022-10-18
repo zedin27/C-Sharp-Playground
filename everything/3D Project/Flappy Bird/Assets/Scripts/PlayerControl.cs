@@ -42,20 +42,5 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Game Over!");
             gameOver = true;
         }
-        // float entered = collision.gameObject.transform.position.x / 2;
-        // else if (collision.gameObject.CompareTag("Pipe") && entered)
-        // {
-
-        // }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.tag);
-        if (other.tag == "Pipe")
-        {
-            Debug.Log("Went through the pipe");
-            // Debug.Log(UIManagerScript);
-            // UIManagerScript.AddScore(1);
-        }
     }
 }
