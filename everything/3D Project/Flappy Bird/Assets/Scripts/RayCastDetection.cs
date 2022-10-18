@@ -5,73 +5,36 @@ using UnityEngine;
 public class RayCastDetection : MonoBehaviour
 {
     public GameObject beam;
-    private float distance = 4.2f;
-    public float yRange = 0;
+    public UIManager UIManagerScript;
+    private RaycastHit hit;
+    private bool passed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        UIManagerScript = GameObject.Find("Score_text").GetComponent<UIManager>(); //useless atm
+        passed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // RaycastHit hit;
-        Vector3 down = beam.transform.TransformDirection(Vector3.down) * distance;
-        // downray = Physics.Raycast(transform.position, down, 10);
-        // print(down);
+        Vector3 down = beam.transform.TransformDirection(Vector3.down);
+        Ray ray = new Ray(beam.transform.position, down);
 
-        if (Physics.Raycast(beam.transform.position, down, 10))
+        if (Physics.Raycast(ray, out hit))
         {
-            print(down);
-            Debug.DrawRay(beam.transform.position, down, Color.cyan);
-            print("There is something in front of the object!");
+            if (hit.collider.tag == "Player" && passed == false)
+            {
+                print("laser touched player");
+                passed = true;
+            }
+            Debug.DrawRay(beam.transform.position, hit.point - beam.transform.position);
         }
-        // CheckForColliders();
     }
 
-    void CheckForColliders()
+    void OnCollisionEnter(Collision collision)
     {
-        // Ray ray = new Ray(transform.position, transform.up);
-        // if (Physics.Raycast(ray, out RaycastHit hit))
-        // {
-        //     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.cyan);
-        //     Debug.Log("I hit " + hit.collider.gameObject.name);
-        // }
-        // else
-        // {
-        //     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1000, Color.white);
-        //     Debug.Log("Did not Hit");
-        // }
+        if (collision.transform.name == "Tomato")
+            print("I'm hitting a pipe");
     }
 }
-
-
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-
-// public class RayCastDetection : MonoBehaviour
-// {
-//     Ray ray;
-//     // Start is called before the first frame update
-//     void Start()
-//     {
-//         Ray ray = new Ray(transform.position, transform.up);
-//     }
-
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         CheckForColliders();
-//     }
-
-//     void CheckForColliders()
-//     {
-//         if (Physics.Raycast(ray, out RaycastHit hit))
-//         {
-//             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.cyan);
-//             Debug.Log("I hit " + hit.collider.gameObject.name);
-//         }
-//     }
-// }

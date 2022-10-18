@@ -27,7 +27,8 @@ public class SpawnManager : MonoBehaviour
         float randomY = Random.Range(-1.5f, 2.5f);
         Vector3 randomHeight = new Vector3(35, randomY, -10);
         Vector3 randomHeight2 = new Vector3(35, randomY + gap, -10);
-        float distance = Vector3.Distance(randomHeight, randomHeight2);
+        
+        // obstaclesPrefab[obstaclesIndex].GetComponent<BoxCollider>().enabled = true;
         if (playerControllerScript.gameOver == false)
         {
             Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
