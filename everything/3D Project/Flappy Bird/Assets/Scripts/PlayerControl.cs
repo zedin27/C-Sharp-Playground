@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -20,15 +21,19 @@ public class PlayerControl : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerRb.drag = 5f;
         playerRb.mass = 9001.42f;
-        sleeping = false;
+        sleeping = true;
         upforce = 6.66f;
-        // Physics.gravity *= gravityModifier;
+        Time.timeScale = 0;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            Time.timeScale = 0;
+        StartSpawn();
+        if (sleeping && Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 1;
+            sleeping = !sleeping;
+        }
         if (!gameOver)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -46,14 +51,20 @@ public class PlayerControl : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             upforce = 0;
             gameOver = true;
+            Time.timeScale = 0;
             Debug.Log("Game Over!");
         }
     }
-    // private void StartMenu()
-    // {
-    //     if (!gameOver && Input.GetKeyDown(KeyCode.Space))
-    //     {
-
-    //     }
-    // }
+    private void StartSpawn()
+    {
+        if (sleeping && Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 1;
+            sleeping = !sleeping;
+        }
+    }
+    private void Replay()
+    {
+        gameOver = false;
+    }
 }

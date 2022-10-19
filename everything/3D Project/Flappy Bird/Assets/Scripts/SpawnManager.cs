@@ -9,7 +9,6 @@ public class SpawnManager : MonoBehaviour
     private Rigidbody playerRb;
     private float startDelay = 1f;
     private float repeatRate = 1f;
-    private bool sleeping = true;
     float gap = 7.42f;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +29,6 @@ public class SpawnManager : MonoBehaviour
         Vector3 randomHeight = new Vector3(35, randomY, -10);
         Vector3 randomHeight2 = new Vector3(35, randomY + gap, -10);
         
-        // obstaclesPrefab[obstaclesIndex].GetComponent<BoxCollider>().enabled = true;
         if (playerControllerScript.gameOver == false)
         {
             Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
