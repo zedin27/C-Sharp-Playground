@@ -5,42 +5,55 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody playerRb;
-    public float jumpForce = 4;
-    public float gravityModifier;
-    public bool isOnGround = false;
+    public Vector3 somedistance;
     public bool gameOver = false;
     private float upperBound = 9;
-    private UIManager UIManagerScript;
+    public float my_gravity = -9.81f;
+    public float upforce;
+    private bool sleeping;
+    private float velocity;
+
     // Start is called before the first frame update
     void Start()
     {
-        // UIManagerScript = GameObject.Find("Score_text").GetComponent<UIManager>();
-        // .Find("Tomato").GetComponent<PlayerControl>();
+        transform.position = new Vector3(7.5f, 3.5f , -10.25f);
         playerRb = GetComponent<Rigidbody>();
-        Physics.gravity *= gravityModifier;
+        playerRb.drag = 5f;
+        playerRb.mass = 9001.42f;
+        sleeping = false;
+        upforce = 6.66f;
+        // Physics.gravity *= gravityModifier;
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
+            Time.timeScale = 0;
+        if (!gameOver)
         {
-            if (playerRb.velocity.y < 0)
-                playerRb.velocity = Vector3.zero;
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-        }
-        if (transform.position.y > upperBound)
-        {
-            transform.position = new Vector3(transform.position.x, upperBound, transform.position.z);
-            jumpForce = 0;
+            if (Input.GetKeyDown(KeyCode.Space))
+                somedistance = Vector3.up * upforce;
+            somedistance.y +=  my_gravity * Time.deltaTime;
+            transform.position += somedistance * Time.deltaTime;
+            if (transform.position.y > upperBound)
+                transform.position = new Vector3(transform.position.x, upperBound, transform.position.z);
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Grass_floor") || collision.gameObject.CompareTag("Pipe"))
         {
-            Debug.Log("Game Over!");
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            upforce = 0;
             gameOver = true;
+            Debug.Log("Game Over!");
         }
     }
+    // private void StartMenu()
+    // {
+    //     if (!gameOver && Input.GetKeyDown(KeyCode.Space))
+    //     {
+
+    //     }
+    // }
 }

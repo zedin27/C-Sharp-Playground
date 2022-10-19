@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7605828388511749644}
   - component: {fileID: 1506339285384600033}
-  - component: {fileID: 2376335044208067469}
   - component: {fileID: 3622322898074910603}
   m_Layer: 0
   m_Name: GameObject
@@ -48,18 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beam: {fileID: 348158704290908027}
   UIManagerScript: {fileID: 0}
---- !u!114 &2376335044208067469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348158704290908027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a82dfa8ff54d47c5a6b008919357b95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &3622322898074910603
 BoxCollider:
   m_ObjectHideFlags: 0

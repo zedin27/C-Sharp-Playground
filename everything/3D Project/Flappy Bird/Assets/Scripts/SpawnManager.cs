@@ -5,10 +5,12 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclesPrefab;
-    private float startDelay = 2;
-    private float repeatRate = 2;
     private PlayerControl playerControllerScript;
-    float gap = 7.0f;
+    private Rigidbody playerRb;
+    private float startDelay = 1f;
+    private float repeatRate = 1f;
+    private bool sleeping = true;
+    float gap = 7.42f;
     // Start is called before the first frame update
     void Start()
     {

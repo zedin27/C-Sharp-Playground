@@ -9,27 +9,33 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Text scoreText;
-    private int score;
+    public Text scoreBoardTitle;
+    public Text scoreBoardDisplay;
+    public string scoreText;
+    public int score;
+    public int oldScore;
     // Start is called before the first frame update
-    private SphereCollider playerControlScript;
     void Start()
     {
-        playerControlScript = GameObject.Find("Tomato").GetComponent<SphereCollider>();
-        scoreText.text = "Score: " + 0;
+        scoreBoardDisplay.text = "Score: " + 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (score != oldScore)
+        {
+            scoreText = score.ToString();
+            scoreBoardDisplay.text = "Score: " + scoreText;
+            oldScore = score;
+        }
     }
 
-    public void AddScore(int point)
-    {
-        score += point;
-        scoreText.text = "Score " + score.ToString();
-    }
+    // public void AddScore(int point)
+    // {
+    //     score += point;
+    //     scoreText.text = "Score " + score.ToString();
+    // }
     // private void OnTriggerEnter(Collider other)
     // {
     //     if (other.gameObject.CompareTag("Pipe"))
