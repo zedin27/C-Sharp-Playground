@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1efbcfb8b52ba4d6386bfc799dd55774, type: 2}
+  - {fileID: 2100000, guid: 8b4f4b6677b034695bd48bc7407c6f03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beam: {fileID: 6215383965153493458}
   UIManagerScript: {fileID: 0}
+  UIManagerScript1: {fileID: 0}
 --- !u!1 &6215383965153493458
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beam: {fileID: 6215383965153493458}
   UIManagerScript: {fileID: 0}
+  UIManagerScript1: {fileID: 0}
 --- !u!65 &7957471749122003098
 BoxCollider:
   m_ObjectHideFlags: 0

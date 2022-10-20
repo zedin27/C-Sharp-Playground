@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beam: {fileID: 348158704290908027}
   UIManagerScript: {fileID: 0}
+  UIManagerScript1: {fileID: 0}
 --- !u!65 &3622322898074910603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f21ae39ec70534a8684e608015e7a2f9, type: 2}
+  - {fileID: 2100000, guid: 57c5271d800bc44be9d4c1f6bd4eca90, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -218,3 +219,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beam: {fileID: 0}
   UIManagerScript: {fileID: 0}
+  UIManagerScript1: {fileID: 0}

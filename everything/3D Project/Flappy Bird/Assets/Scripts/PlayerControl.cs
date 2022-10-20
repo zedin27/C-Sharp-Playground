@@ -7,6 +7,9 @@ public class PlayerControl : MonoBehaviour
 {
     private Rigidbody playerRb;
     public Vector3 somedistance;
+    public AudioSource sound_flap;
+    public AudioSource sound_hit;
+    public AudioSource sound_die;
     public bool gameOver = false;
     private float upperBound = 9;
     public float my_gravity = -9.81f;
@@ -17,8 +20,8 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(7.5f, 3.5f , -10.25f);
         playerRb = GetComponent<Rigidbody>();
+        transform.position = new Vector3(10.75f, 3.5f , -10.25f);
         playerRb.drag = 5f;
         playerRb.mass = 9001.42f;
         sleeping = true;
@@ -29,15 +32,13 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         StartSpawn();
-        if (sleeping && Input.GetKeyDown(KeyCode.Space))
-        {
-            Time.timeScale = 1;
-            sleeping = !sleeping;
-        }
         if (!gameOver)
         {
             if (Input.GetKeyDown(KeyCode.Space))
+            {
+                sound_flap.Play();
                 somedistance = Vector3.up * upforce;
+            }
             somedistance.y +=  my_gravity * Time.deltaTime;
             transform.position += somedistance * Time.deltaTime;
             if (transform.position.y > upperBound)
@@ -48,6 +49,8 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Grass_floor") || collision.gameObject.CompareTag("Pipe"))
         {
+            sound_hit.Play();
+            sound_die.Play();
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             upforce = 0;
             gameOver = true;

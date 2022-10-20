@@ -9,15 +9,15 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Text scoreBoardTitle;
     public Text scoreBoardDisplay;
+    public Text scoreBoardDisplayShadowed;
+    public AudioSource sound_score;
     public string scoreText;
     public int score;
     public int oldScore;
     // Start is called before the first frame update
     void Start()
     {
-        scoreBoardDisplay.text = "Score: " + 0;
     }
 
     // Update is called once per frame
@@ -25,20 +25,11 @@ public class UIManager : MonoBehaviour
     {
         if (score != oldScore)
         {
+            sound_score.Play();
             scoreText = score.ToString();
-            scoreBoardDisplay.text = "Score: " + scoreText;
+            scoreBoardDisplay.text = scoreText;
+            scoreBoardDisplayShadowed.text = scoreText;
             oldScore = score;
         }
     }
-
-    // public void AddScore(int point)
-    // {
-    //     score += point;
-    //     scoreText.text = "Score " + score.ToString();
-    // }
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.gameObject.CompareTag("Pipe"))
-    //         AddScore();
-    // }
 }
