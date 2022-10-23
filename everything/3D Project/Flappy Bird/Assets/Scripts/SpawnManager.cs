@@ -6,8 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclesPrefab;
     private PlayerControl playerControllerScript;
-    private float startDelay = 1.3f;
-    private float repeatRate = 1f;
+    private float startDelay = 1.69f;
+    private float repeatRate = 1.1f;
     float gap = 7.42f;
     // Start is called before the first frame update
     void Start()
