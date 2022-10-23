@@ -130,10 +130,8 @@ public class PlayerControl : MonoBehaviour
     public float fallSpeed = 0;
     public float upforce;
     private bool sleeping;
-    public float zTest;
-    private float _angle;
-    public float minAngle = -45.0f;
-    public float maxAngle = 0.0f;
+    private float minAngle = -69.0f;
+    private float maxAngle = 12.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -145,7 +143,6 @@ public class PlayerControl : MonoBehaviour
         sleeping = true;
         upforce = 6.66f;
         Time.timeScale = 0;
-        currentEuler = transform.eulerAngles;
     }
     // Update is called once per frame
     void Update()
@@ -153,7 +150,7 @@ public class PlayerControl : MonoBehaviour
         StartSpawn();
         if (!gameOver)
         {
-            FallSpeed();
+            FallSpeedAngle();
             PlayersAction();
             if (transform.position.y > upperBound)
                 transform.position = new Vector3(transform.position.x, upperBound, transform.position.z);
@@ -172,34 +169,15 @@ public class PlayerControl : MonoBehaviour
             sleeping = !sleeping;
         }
     }
-    private void FallSpeed()
+    private void FallSpeedAngle()
     {
-        /*Stackoverflow*/
-        fallSpeed += 0.24f * Time.deltaTime;
-        velocity.y += my_gravity * Time.deltaTime;
-        transform.position += velocity * Time.deltaTime;
+        // remove below for later just in case
+        // velocity.y += 0.24f * Time.deltaTime;
+        // transform.position += velocity * Time.deltaTime;
         
-        float newAngle = Mathf.Atan2(velocity.y, 1.0f);
+        float newAngle = Mathf.Atan2(velocity.y, 1);
         newAngle = Mathf.Clamp(newAngle * Mathf.Rad2Deg, minAngle, maxAngle);
-        _angle = Mathf.Lerp(_angle, newAngle, Time.deltaTime);
-        transform.eulerAngles = new Vector3(0, 0, _angle);
-       
-        // // Debug.Log(transform.eulerAngles.z);
-        // // currentEuler.z = 6 * velocity.y;
-        // zTest += 1 * velocity.y;
-        // // print(zTest);
-        // transform.rotation = Quaternion.Euler(0, 0, zTest);
-        // print(transform.rotation);
-        // if ((transform.rotation.z >= -69.0f && transform.rotation.z <= 0.0f))
-        // {
-        //     // transform.Rotate(0, 0, -69.0f);
-        //     transform.rotation = Quaternion.Euler(0, 0, zTest);
-        //     // currentEuler = new Vector3(transform.rotation.x, transform.rotation.y, -69);
-        //     print("I DID IT");
-        // }
-        // // transform.eulerAngles = currentEuler; //Does rotation in the z-axis
-        // // if ((transform.eulerAngles.z > 270.0f || transform.eulerAngles.z <= 358.0f) || (transform.rotation.z >= -69.0f || transform.rotation.z <= 0))
-        // //     currentEuler = new Vector3(transform.rotation.x, transform.rotation.y, -69);
+        transform.localEulerAngles = new Vector3(0, 0, newAngle + 21.007f); //FIXME: Find a better solution and replace the hardcoded value.
     }
     private void Replay()
     {
@@ -229,20 +207,3 @@ public class PlayerControl : MonoBehaviour
         transform.position += velocity * Time.deltaTime;
     }
 }
-
-    // public float zTest;
-    // public Vector3 velocity;
-    
-    // private void FallSpeed()
-    // {
-    //     velocity.y +=  my_gravity * Time.deltaTime; //my_gravity is set to -9.81f
-    //     transform.position += velocity * Time.deltaTime;
-    //     zTest += 1 * movemenntDirection.y;
-    //     transform.rotation = Quaternion.Euler(0, 0, zTest);
-    //     if ((transform.rotation.z >= -45.0f && transform.rotation.z <= 0.0f))
-    //     {
-    //         transform.Rotate(0, 0, zTest); //I have a feeling this is completely bad, but I was trying to reset my rotation values.
-    //         // transform.rotation = Quaternion.Euler(0, 0, zTest); //Another way I was trying it
-    //         // currentEuler = new Vector3(transform.rotation.x, transform.rotation.y, -69); //Another way I was trying it
-    //     }
-    // }
