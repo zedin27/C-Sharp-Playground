@@ -329,7 +329,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234055265}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 726515d0c92164242a8106a2a14d18d7, type: 3}
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761431858}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d85776cc7fbe44a1911ff45d312fe07, type: 3}
   m_Name: 
@@ -892,15 +892,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56233cb33ef4c47b9995f0f803fd0e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementDirection: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
   sound_flap: {fileID: 0}
   sound_hit: {fileID: 0}
   sound_die: {fileID: 0}
   gameOver: 0
+  hit: 0
   my_gravity: -9.81
   fallSpeed: 0
   upforce: 10
-  zTest: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.25
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1231,7 +1231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.7500086
+      value: -6.75
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6120,15 +6120,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56233cb33ef4c47b9995f0f803fd0e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementDirection: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
   sound_flap: {fileID: 1934960767}
   sound_hit: {fileID: 1934960768}
   sound_die: {fileID: 1934960769}
   gameOver: 0
+  hit: 0
   my_gravity: -19.2
   fallSpeed: 0
   upforce: 6.66
-  zTest: 0
 --- !u!135 &1934960763
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6156,7 +6156,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 30
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!82 &1934960767
 AudioSource:
@@ -6165,7 +6165,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934960759}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 19643ec4612dd4e72a960e7ab154f5e2, type: 3}
@@ -6261,7 +6261,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934960759}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6a440e9f25f614517971222236be575a, type: 3}
@@ -6357,7 +6357,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934960759}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 091811113c98b4e09ac89029d5507c4d, type: 3}
