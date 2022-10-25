@@ -151,14 +151,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935852030489741028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 829bb8896493a4aa6b57097dfa28ba47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beam: {fileID: 6215383965153493458}
   UIManagerScript: {fileID: 0}
-  UIManagerScript1: {fileID: 0}
+  particles: {fileID: 0}
 --- !u!1 &6215383965153493458
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,9 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829bb8896493a4aa6b57097dfa28ba47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beam: {fileID: 6215383965153493458}
   UIManagerScript: {fileID: 0}
-  UIManagerScript1: {fileID: 0}
+  particles: {fileID: 0}
 --- !u!65 &7957471749122003098
 BoxCollider:
   m_ObjectHideFlags: 0

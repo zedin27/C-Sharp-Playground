@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
     public AudioSource sound_die;
     private Vector3 currentEuler;
     public Transform target; // "grass_floor"
+    // public ParticleSystem particles;
     public bool gameOver = false;
     public bool hit;
     private float upperBound = 9f;
@@ -30,6 +31,8 @@ public class PlayerControl : MonoBehaviour
     {
         transform.position = new Vector3(10.75f, 3.5f , -10.25f);
         playerRb = GetComponent<Rigidbody>();
+        // particles = GameObject.Find("Particles").GetComponent<ParticleSystem>();
+        // particles.Stop();
         playerRb.drag = 5f;
         playerRb.mass = 9001.42f;
         sleeping = true;
@@ -54,6 +57,7 @@ public class PlayerControl : MonoBehaviour
             {
                 velocity.y +=  my_gravity * Time.deltaTime;
                 transform.position += velocity * Time.deltaTime;
+                FallSpeedAngle();
             }
             GameOver();
         }
@@ -63,7 +67,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Grass_floor") || collision.gameObject.CompareTag("Pipe"))
         {
             HitAndDie();
-            GameOver();
+            // GameOver();
         }
     }
     private void StartSpawn()
@@ -92,13 +96,14 @@ public class PlayerControl : MonoBehaviour
             hit = true;
             sound_hit.Play();
             sound_die.Play();
+            // particles.Stop();
+            print("Game Over!");
         }
         Time.timeScale = 1;
     }
     private void GameOver()
     {
         gameOver = true;
-        Debug.Log("Game Over!");
     }
 
     private void PlayersAction()

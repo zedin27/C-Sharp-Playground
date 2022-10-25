@@ -18,7 +18,7 @@ public class MoveLeft : MonoBehaviour
     {
         if (playerControllerScript.gameOver == false)
             transform.Translate(Vector3.right * Time.deltaTime * speed);
-        if (gameObject.CompareTag("Pipe") && transform.position.x < leftBound)
+        if ((gameObject.CompareTag("Pipe") || gameObject.CompareTag("Particles")) && transform.position.x < leftBound)
             Destroy(gameObject);
     }
 }

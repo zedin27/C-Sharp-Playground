@@ -9,23 +9,24 @@ using UnityEngine;
 */
 public class RayCastDetection : MonoBehaviour
 {
-    public GameObject beam;
     public UIManager UIManagerScript;
-    public UIManager UIManagerScript1;
+    public ParticleSystem particles;
     private RaycastHit hit;
     private bool passed;
     // Start is called before the first frame update
     void Start()
     {
         UIManagerScript = GameObject.Find("UI_Manager").GetComponent<UIManager>();
+        // particles = GameObject.Find("Particles").GetComponent<ParticleSystem>();
+        // particles.Pause();
         passed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 down = beam.transform.TransformDirection(Vector3.down);
-        Ray ray = new Ray(beam.transform.position, down);
+        Vector3 beamDown = transform.TransformDirection(Vector3.down);
+        Ray ray = new Ray(transform.position, beamDown);
 
         if (Physics.Raycast(ray, out hit))
         {
@@ -33,8 +34,9 @@ public class RayCastDetection : MonoBehaviour
             {
                 passed = true;
                 UIManagerScript.score++;
+                // particles.Play();
             }
-            Debug.DrawRay(beam.transform.position, hit.point - beam.transform.position);
+            Debug.DrawRay(transform.position, hit.point - transform.position);
         }
     }
 }

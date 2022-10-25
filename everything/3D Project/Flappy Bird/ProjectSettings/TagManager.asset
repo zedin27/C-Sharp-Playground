@@ -9,6 +9,7 @@ TagManager:
   - Background
   - Beam
   - Score_text
+  - Particles
   layers:
   - Default
   - TransparentFX
