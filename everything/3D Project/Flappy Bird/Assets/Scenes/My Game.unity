@@ -222,13 +222,13 @@ ParticleSystem:
   m_GameObject: {fileID: 157338124}
   serializedVersion: 8
   lengthInSec: 0.5
-  simulationSpeed: 20.5
+  simulationSpeed: 17.51
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -788,7 +788,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.015
+      scalar: 0.6
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -849,7 +849,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.63, y: 1, z: 2.59}
+    m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -916,7 +916,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
-    alignToDirection: 0
+    alignToDirection: 1
     m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
@@ -928,7 +928,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.6714878
       mode: 0
       spread: 0
       speed:
@@ -4928,12 +4928,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157338124}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -10.391886, y: 9.800887, z: -17.49264}
-  m_LocalScale: {x: 0.464, y: 0.40000004, z: 0.40000004}
+  m_LocalPosition: {x: 10.69, y: 3.249, z: -10.25}
+  m_LocalScale: {x: 0.464, y: 0.40000036, z: 0.40000036}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 761431859}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &175623811
 GameObject:
@@ -5441,8 +5441,7 @@ Transform:
   m_LocalPosition: {x: 21.141886, y: -6.828887, z: 7.2426395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 157338127}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5710,7 +5709,6 @@ MonoBehaviour:
   sound_hit: {fileID: 0}
   sound_die: {fileID: 0}
   target: {fileID: 0}
-  particles: {fileID: 0}
   gameOver: 0
   hit: 0
   my_gravity: -9.81
@@ -6132,7 +6130,6 @@ MonoBehaviour:
   sound_hit: {fileID: 1934960768}
   sound_die: {fileID: 1934960769}
   target: {fileID: 1311669211}
-  particles: {fileID: 0}
   gameOver: 0
   hit: 0
   my_gravity: -19.2
