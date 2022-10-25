@@ -896,10 +896,11 @@ MonoBehaviour:
   sound_flap: {fileID: 0}
   sound_hit: {fileID: 0}
   sound_die: {fileID: 0}
+  target: {fileID: 0}
+  smoothing: 1
   gameOver: 0
   hit: 0
   my_gravity: -9.81
-  fallSpeed: 0
   upforce: 10
 --- !u!1 &963194225
 GameObject:
@@ -1202,6 +1203,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189037978}
   m_CullTransparentMesh: 1
+--- !u!4 &1311669211 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
+  m_PrefabInstance: {fileID: 1607220502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1607220502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6124,10 +6130,11 @@ MonoBehaviour:
   sound_flap: {fileID: 1934960767}
   sound_hit: {fileID: 1934960768}
   sound_die: {fileID: 1934960769}
+  target: {fileID: 1311669211}
+  smoothing: 1
   gameOver: 0
   hit: 0
   my_gravity: -19.2
-  fallSpeed: 0
   upforce: 6.66
 --- !u!135 &1934960763
 SphereCollider:
