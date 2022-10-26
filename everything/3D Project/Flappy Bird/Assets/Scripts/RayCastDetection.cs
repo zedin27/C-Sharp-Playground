@@ -11,14 +11,14 @@ public class RayCastDetection : MonoBehaviour
 {
     public UIManager UIManagerScript;
     public ParticleSystem particles;
+    public PlayerControl playerControlScript;
     private RaycastHit hit;
-    private bool passed;
+    public bool passed;
     // Start is called before the first frame update
     void Start()
     {
         UIManagerScript = GameObject.Find("UI_Manager").GetComponent<UIManager>();
-        // particles = GameObject.Find("Particles").GetComponent<ParticleSystem>();
-        // particles.Pause();
+        playerControlScript = GameObject.Find("Tomato").GetComponent<PlayerControl>();
         passed = false;
     }
 
@@ -34,7 +34,8 @@ public class RayCastDetection : MonoBehaviour
             {
                 passed = true;
                 UIManagerScript.score++;
-                // particles.Play();
+                if (playerControlScript.transform.position.y <= 4f && passed == false)
+                    playerControlScript.passedBeam = true;
             }
             Debug.DrawRay(transform.position, hit.point - transform.position);
         }

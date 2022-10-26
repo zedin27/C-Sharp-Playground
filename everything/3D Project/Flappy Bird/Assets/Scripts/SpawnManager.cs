@@ -30,8 +30,8 @@ public class SpawnManager : MonoBehaviour
         
         if (playerControllerScript.gameOver == false)
         {
-            Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
             Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight2, obstaclesPrefab[obstaclesIndex].transform.rotation);
+            Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
         }
     }
 }

@@ -18,13 +18,14 @@ public class PlayerControl : MonoBehaviour
     public Transform target; // "grass_floor"
     // public ParticleSystem particles;
     public bool gameOver = false;
-    public bool hit;
+    public bool passedBeam = false;
     private float upperBound = 9f;
     public float my_gravity = -9.81f;
-    public float upforce;
-    private bool sleeping;
     private float minAngle = -69.0f;
     private float maxAngle = 12.0f;
+    public bool hit;
+    public float upforce;
+    private bool sleeping;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Grass_floor") || collision.gameObject.CompareTag("Pipe"))
         {
             HitAndDie();
-            // GameOver();
+            GameOver();
         }
     }
     private void StartSpawn()
