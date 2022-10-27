@@ -47,10 +47,5 @@ Some Resources can be found in each project folder worked on too.
 ## TODO
 
 - [ ] Focus in game physics with Unity
-- [ ] Ask for HR help in the following:
-      contract extension
-      gym proof
-- [x] Create a vector math, transformation classes
-- [ ]
-- [ ] Practice virtual, abstract, and override methods
+- [ ] Reposition player and pipes to display birp after dying
 - [ ] Restructure directories
