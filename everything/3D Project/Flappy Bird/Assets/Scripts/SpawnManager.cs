@@ -25,8 +25,8 @@ public class SpawnManager : MonoBehaviour
     {
         int obstaclesIndex = Random.Range(0, obstaclesPrefab.Length);
         float randomY = Random.Range(-1.5f, 2.5f);
-        Vector3 randomHeight = new Vector3(35, randomY, -10);
-        Vector3 randomHeight2 = new Vector3(35, randomY + gap, -10);
+        Vector3 randomHeight = new Vector3(35, randomY, -7);
+        Vector3 randomHeight2 = new Vector3(35, randomY + gap, -7);
         
         if (playerControllerScript.gameOver == false)
         {

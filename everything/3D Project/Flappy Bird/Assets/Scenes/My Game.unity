@@ -5711,8 +5711,9 @@ MonoBehaviour:
   sound_die: {fileID: 0}
   target: {fileID: 0}
   gameOver: 0
-  hit: 0
+  passedBeam: 0
   my_gravity: -9.81
+  hit: 0
   upforce: 10
 --- !u!1 &963194225
 GameObject:
@@ -6041,7 +6042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.25
+      value: 24.75
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6132,8 +6133,9 @@ MonoBehaviour:
   sound_die: {fileID: 1934960769}
   target: {fileID: 1311669211}
   gameOver: 0
-  hit: 0
+  passedBeam: 0
   my_gravity: -19.2
+  hit: 0
   upforce: 6.66
 --- !u!135 &1934960763
 SphereCollider:
