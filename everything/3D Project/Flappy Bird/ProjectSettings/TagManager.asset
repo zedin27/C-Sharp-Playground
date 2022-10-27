@@ -15,6 +15,7 @@ TagManager:
   - Tutorial2
   - Tutorial3
   - Text
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

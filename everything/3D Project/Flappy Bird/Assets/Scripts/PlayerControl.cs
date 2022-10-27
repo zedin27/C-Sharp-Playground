@@ -4,6 +4,7 @@ using UnityEngine;
 
 /*
 ** Rotation boundaries: https://stackoverflow.com/questions/71905959/how-to-limit-rotation-of-object-in-unity
+** Aspect Ratio fitter: https://stackoverflow.com/a/55512751/6017248
 */
 
 
