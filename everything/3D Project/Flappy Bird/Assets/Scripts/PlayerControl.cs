@@ -16,9 +16,11 @@ public class PlayerControl : MonoBehaviour
     public AudioSource sound_die;
     private Vector3 currentEuler;
     public Transform target; // "grass_floor"
+    private CanvasGroup canvas;
     // public ParticleSystem particles;
     public bool gameOver = false;
     public bool passedBeam = false;
+    private bool tutorial = false;
     private float upperBound = 9f;
     public float my_gravity = -9.81f;
     private float minAngle = -69.0f;
@@ -31,6 +33,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(10.75f, 3.5f , -10.25f);
+        canvas = GameObject.Find("Text").GetComponent<CanvasGroup>();
         playerRb = GetComponent<Rigidbody>();
         // particles = GameObject.Find("Particles").GetComponent<ParticleSystem>();
         // particles.Stop();
@@ -47,6 +50,7 @@ public class PlayerControl : MonoBehaviour
         StartSpawn();
         if (!gameOver)
         {
+            HideTutorial();
             FallSpeedAngle();
             PlayersAction();
             if (transform.position.y > upperBound)
@@ -75,9 +79,17 @@ public class PlayerControl : MonoBehaviour
     {
         if (sleeping && Input.GetKeyDown(KeyCode.Space))
         {
+            tutorial = true;
+            HideTutorial();
             Time.timeScale = 1;
             sleeping = !sleeping;
         }
+    }
+
+    private void HideTutorial()
+    {
+        if (canvas.CompareTag("Text") && tutorial == true)
+            canvas.alpha = 0;
     }
     private void FallSpeedAngle()
     {        

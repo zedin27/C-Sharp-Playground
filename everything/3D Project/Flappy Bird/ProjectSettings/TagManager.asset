@@ -10,6 +10,11 @@ TagManager:
   - Beam
   - Score_text
   - Particles
+  - Tutorial
+  - Tutorial1
+  - Tutorial2
+  - Tutorial3
+  - Text
   layers:
   - Default
   - TransparentFX
