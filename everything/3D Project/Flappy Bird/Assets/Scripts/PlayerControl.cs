@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
 ** Rotation boundaries: https://stackoverflow.com/questions/71905959/how-to-limit-rotation-of-object-in-unity
 ** Aspect Ratio fitter: https://stackoverflow.com/a/55512751/6017248
+** Flashing when getting hit by colission: https://www.youtube.com/watch?v=d9FaI28Yf9A&ab_channel=Firemind
 */
 
 
@@ -18,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 currentEuler;
     public Transform target; // "grass_floor"
     private CanvasGroup canvas;
+    public GameObject gotHitScreen;
     // public ParticleSystem particles;
     public bool gameOver = false;
     public bool passedBeam = false;
@@ -65,6 +68,7 @@ public class PlayerControl : MonoBehaviour
                 transform.position += velocity * Time.deltaTime;
                 FallSpeedAngle();
             }
+            //Add here the hitscreen maybe, right before gameover
             GameOver();
         }
     }
@@ -107,6 +111,10 @@ public class PlayerControl : MonoBehaviour
     {
         if (hit == false)
         {
+            var color = gotHitScreen.GetComponent<Image>().color;
+            color.a = 0.6f;
+
+            gotHitScreen.GetComponent<Image>().color = color;
             hit = true;
             sound_hit.Play();
             sound_die.Play();
@@ -117,6 +125,16 @@ public class PlayerControl : MonoBehaviour
     }
     private void GameOver()
     {
+        if (gotHitScreen != null)
+        {
+            if (gotHitScreen.GetComponent<Image>().color.a > 0)
+            {
+                var color = gotHitScreen.GetComponent<Image>().color;
+                color.a -= 0.042f;
+
+                gotHitScreen.GetComponent<Image>().color = color;
+            }
+        }
         gameOver = true;
     }
 
