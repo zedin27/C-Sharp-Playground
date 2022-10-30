@@ -5648,8 +5648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclesPrefab:
-  - {fileID: 412321909663692375, guid: cd479398e6e4a47bcb5b8290782f5ede, type: 3}
-  - {fileID: 935852030489741028, guid: 2bd9765959b0846c3b57e967f9523a7a, type: 3}
+  - {fileID: 8164408390609862132, guid: 086a81a874df44bb2ad53eee7c588dac, type: 3}
 --- !u!1 &813749850
 GameObject:
   m_ObjectHideFlags: 0
@@ -6587,7 +6586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.05000019
       objectReference: {fileID: 0}
     - target: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7304,6 +7303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0cee13507424a9b816ced16957411f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
 --- !u!65 &2067667744
 BoxCollider:
   m_ObjectHideFlags: 0
