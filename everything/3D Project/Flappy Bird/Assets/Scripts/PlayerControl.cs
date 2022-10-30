@@ -82,7 +82,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void StartSpawn()
     {
-        if (sleeping && Input.GetKeyDown(KeyCode.Space))
+        if (sleeping && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)))
         {
             tutorial = true;
             HideTutorial();
@@ -140,7 +140,7 @@ public class PlayerControl : MonoBehaviour
 
     private void PlayersAction()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
             sound_flap.Play();
             velocity = Vector3.up * upforce;
