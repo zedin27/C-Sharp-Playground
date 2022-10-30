@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManagerScript: {fileID: 0}
   particles: {fileID: 0}
+  playerControlScript: {fileID: 0}
+  passed: 0
 --- !u!65 &3622322898074910603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91,8 +93,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412321909663692375}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 19.517, y: 1.8062, z: -10.1795}
-  m_LocalScale: {x: 2.7133446, y: 2.4821584, z: 2.713397}
+  m_LocalPosition: {x: 19.4943, y: 1.1299, z: -10.1795}
+  m_LocalScale: {x: 2.7586575, y: 2.5320876, z: 2.713397}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7605828388511749644}
@@ -218,3 +220,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManagerScript: {fileID: 0}
   particles: {fileID: 0}
+  playerControlScript: {fileID: 0}
+  passed: 0

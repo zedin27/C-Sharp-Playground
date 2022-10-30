@@ -16,6 +16,7 @@ TagManager:
   - Tutorial3
   - Text
   - MainCanvas
+  - GotHIt
   layers:
   - Default
   - TransparentFX
