@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclesPrefab;
@@ -24,14 +25,10 @@ public class SpawnManager : MonoBehaviour
     void SpawnObstacle()
     {
         int obstaclesIndex = Random.Range(0, obstaclesPrefab.Length);
-        float randomY = Random.Range(-1.5f, 2.5f);
+        float randomY = Random.Range(-2f, 2f);
         Vector3 randomHeight = new Vector3(35, randomY, -7);
-        Vector3 randomHeight2 = new Vector3(35, randomY + gap, -7);
         
         if (playerControllerScript.gameOver == false)
-        {
-            Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight2, obstaclesPrefab[obstaclesIndex].transform.rotation);
             Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
-        }
     }
 }
