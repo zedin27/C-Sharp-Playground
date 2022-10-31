@@ -11,7 +11,6 @@ public class MoveLeft : MonoBehaviour
     void Start()
     {
         playerControllerScript = GameObject.Find("Tomato").GetComponent<PlayerControl>();
-
     }
 
     // Update is called once per frame
@@ -20,6 +19,6 @@ public class MoveLeft : MonoBehaviour
         if (playerControllerScript.gameOver == false)
             transform.Translate(Vector3.right * Time.deltaTime * speed);
         if ((gameObject.CompareTag("Pipe") || gameObject.CompareTag("Particles")) && transform.position.x < leftBound)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
     }
 }

@@ -7,9 +7,9 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclesPrefab;
     private PlayerControl playerControllerScript;
+    // public RayCastDetection rayCastDetectionScript;
     private float startDelay = 1.69f;
     private float repeatRate = 1.1f;
-    float gap = 7.42f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +24,20 @@ public class SpawnManager : MonoBehaviour
     }
     void SpawnObstacle()
     {
-        int obstaclesIndex = Random.Range(0, obstaclesPrefab.Length);
-        float randomY = Random.Range(-2f, 2f);
-        Vector3 randomHeight = new Vector3(35, randomY, -7);
+        // int obstaclesIndex = Random.Range(0, obstaclesPrefab.Length);
         
         if (playerControllerScript.gameOver == false)
-            Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
+        {
+            float randomY = Random.Range(-2f, 2f);
+            Vector3 randomHeight = new Vector3(35, randomY, -7);
+            GameObject pipe = ObjectPooling.sharedInstance.GetPooledObject();
+            if (pipe != null)
+            {
+                pipe.transform.position = randomHeight;
+                pipe.SetActive(true);
+                // rayCastDetectionScript.passed = false;
+            }
+        }
+            // Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
     }
 }
