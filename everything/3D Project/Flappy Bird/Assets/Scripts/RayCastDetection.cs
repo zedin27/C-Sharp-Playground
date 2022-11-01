@@ -70,7 +70,7 @@ public class RayCastDetection : MonoBehaviour
         UIManagerScript = GameObject.Find("UI_Manager").GetComponent<UIManager>();
         playerControlScript = GameObject.Find("Tomato").GetComponent<PlayerControl>();
         passed = false;
-        playerControlScript.passedBeam = false;
+        // playerControlScript.passedBeam = false;
     }
 
     // Update is called once per frame
@@ -83,15 +83,16 @@ public class RayCastDetection : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.tag == "Player" && !playerControlScript.passedBeam)
+                if (hit.collider.tag == "Player" && !UIManagerScript.success)
                 {
-                    playerControlScript.passedBeam = !playerControlScript.passedBeam;
+                    UIManagerScript.incrementScore = true;
                     UIManagerScript.score++;
                 }
+                if (UIManagerScript.incrementScore)
+                    UIManagerScript.success = true;
                 Debug.DrawRay(transform.position, hit.point - transform.position);
             }
         }
-        else
-            playerControlScript.passedBeam = false;
+        // playerControlScript.passedBeam = false;
     }
 }

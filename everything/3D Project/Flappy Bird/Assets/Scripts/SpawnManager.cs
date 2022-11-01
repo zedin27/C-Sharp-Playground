@@ -6,6 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclesPrefab;
     private PlayerControl playerControllerScript;
+    public UIManager UIManagerScript;
+
     // public RayCastDetection rayCastDetectionScript;
     private float startDelay = 1.69f;
     private float repeatRate = 1.1f;
@@ -13,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         playerControllerScript = GameObject.Find("Tomato").GetComponent<PlayerControl>();
+        UIManagerScript = GameObject.Find("UI_Manager").GetComponent<UIManager>();
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
     }
 
@@ -34,7 +37,8 @@ public class SpawnManager : MonoBehaviour
             {
                 pipe.transform.position = randomHeight;
                 pipe.SetActive(true);
-                // rayCastDetectionScript.passed = false;
+                UIManagerScript.incrementScore = false;
+                UIManagerScript.success = false;
             }
         }
         // Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
