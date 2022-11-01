@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject gotHitScreen;
     // public ParticleSystem particles;
     public bool gameOver = false;
-    public bool passedBeam = false;
+    public bool passedBeam;
     private bool tutorial = false;
     private float upperBound = 9f;
     public float my_gravity = -9.81f;
@@ -47,6 +47,7 @@ public class PlayerControl : MonoBehaviour
         hit = false;
         upforce = 6.66f;
         Time.timeScale = 0;
+        passedBeam = false;
     }
     // Update is called once per frame
     void Update()
@@ -68,7 +69,6 @@ public class PlayerControl : MonoBehaviour
                 transform.position += velocity * Time.deltaTime;
                 FallSpeedAngle();
             }
-            //Add here the hitscreen maybe, right before gameover
             GameOver();
         }
     }

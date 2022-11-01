@@ -9,20 +9,20 @@ using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {
-    public RayCastDetection rayCastDetectionScript;
     public static ObjectPooling sharedInstance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
+    private PlayerControl playerControllerScript;
     public int amountToPool;
     // Start is called before the first frame update
     
     void Awake()
     {
-        rayCastDetectionScript = GetComponent<RayCastDetection>();
         sharedInstance = this;
     }
     void Start()
     {
+        playerControllerScript = GameObject.Find("Tomato").GetComponent<PlayerControl>();
         pooledObjects = new List<GameObject>();
         GameObject tmp;
 
@@ -30,6 +30,7 @@ public class ObjectPooling : MonoBehaviour
         {
             tmp = Instantiate(objectToPool);
             tmp.SetActive(false);
+            playerControllerScript.passedBeam = false;
             pooledObjects.Add(tmp);
         }
     }
@@ -37,7 +38,6 @@ public class ObjectPooling : MonoBehaviour
     {
         for (int i = 0; i < amountToPool; i++)
         {
-            rayCastDetectionScript.passed = false;
             if (!pooledObjects[i].activeInHierarchy)
                 return pooledObjects[i];
         }

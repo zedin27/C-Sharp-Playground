@@ -15,9 +15,11 @@ public class UIManager : MonoBehaviour
     public string scoreText;
     public int score;
     public int oldScore;
+    public bool success;
     // Start is called before the first frame update
     void Start()
     {
+        success = false;
     }
 
     // Update is called once per frame

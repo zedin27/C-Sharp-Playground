@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstaclesPrefab;
@@ -38,6 +37,6 @@ public class SpawnManager : MonoBehaviour
                 // rayCastDetectionScript.passed = false;
             }
         }
-            // Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
+        // Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
     }
 }
