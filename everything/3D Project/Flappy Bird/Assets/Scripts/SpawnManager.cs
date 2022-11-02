@@ -7,11 +7,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstaclesPrefab;
     private PlayerControl playerControllerScript;
     public UIManager UIManagerScript;
-
-    // public RayCastDetection rayCastDetectionScript;
     private float startDelay = 1.69f;
     private float repeatRate = 1.1f;
-    // Start is called before the first frame update
     void Start()
     {
         playerControllerScript = GameObject.Find("Tomato").GetComponent<PlayerControl>();
@@ -19,15 +16,8 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void SpawnObstacle()
     {
-        // int obstaclesIndex = Random.Range(0, obstaclesPrefab.Length);
-        
         if (playerControllerScript.gameOver == false)
         {
             float randomY = Random.Range(-2f, 2f);
@@ -41,6 +31,5 @@ public class SpawnManager : MonoBehaviour
                 UIManagerScript.success = false;
             }
         }
-        // Instantiate(obstaclesPrefab[obstaclesIndex], randomHeight, obstaclesPrefab[obstaclesIndex].transform.rotation);
     }
 }

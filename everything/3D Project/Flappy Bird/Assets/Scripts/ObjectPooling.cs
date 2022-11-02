@@ -14,7 +14,6 @@ public class ObjectPooling : MonoBehaviour
     public GameObject objectToPool;
     private PlayerControl playerControllerScript;
     public int amountToPool;
-    // Start is called before the first frame update
     
     void Awake()
     {
@@ -30,7 +29,6 @@ public class ObjectPooling : MonoBehaviour
         {
             tmp = Instantiate(objectToPool);
             tmp.SetActive(false);
-            playerControllerScript.passedBeam = false;
             pooledObjects.Add(tmp);
         }
     }

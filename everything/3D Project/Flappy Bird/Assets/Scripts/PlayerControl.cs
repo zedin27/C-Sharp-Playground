@@ -23,7 +23,6 @@ public class PlayerControl : MonoBehaviour
     public GameObject gotHitScreen;
     // public ParticleSystem particles;
     public bool gameOver = false;
-    public bool passedBeam;
     private bool tutorial = false;
     private float upperBound = 9f;
     public float my_gravity = -9.81f;
@@ -33,7 +32,6 @@ public class PlayerControl : MonoBehaviour
     public float upforce;
     private bool sleeping;
 
-    // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(10.75f, 3.5f , -10.25f);
@@ -47,7 +45,6 @@ public class PlayerControl : MonoBehaviour
         hit = false;
         upforce = 6.66f;
         Time.timeScale = 0;
-        passedBeam = false;
     }
     // Update is called once per frame
     void Update()
