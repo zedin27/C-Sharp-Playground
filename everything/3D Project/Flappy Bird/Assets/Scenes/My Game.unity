@@ -5977,7 +5977,6 @@ MonoBehaviour:
   target: {fileID: 0}
   gotHitScreen: {fileID: 0}
   gameOver: 0
-  passedBeam: 0
   my_gravity: -9.81
   hit: 0
   upforce: 10
@@ -6880,8 +6879,7 @@ MonoBehaviour:
   target: {fileID: 1311669211}
   gotHitScreen: {fileID: 1538140234}
   gameOver: 0
-  passedBeam: 0
-  my_gravity: -19.2
+  my_gravity: -19.8
   hit: 0
   upforce: 6.66
 --- !u!135 &1934960763
