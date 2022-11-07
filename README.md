@@ -2,7 +2,7 @@
 
 ## DISCLAIMER
 
-These are personal notes and locally tested. You may encounter issues compiling due the dependencies needed and machine being used.
+These are personal notes and locally tested. You may encounter issues compiling due the dependencies needed and machine being used. Also, if you want to use my notes, feel free to use them as long there are no violation to credibility or misuse of it. Notes are uploaded to the _rb_ folder as pdfs
 
 ## Notes
 
@@ -14,8 +14,8 @@ My goals after understanding C# is to go through Unity. For each of the list, it
 
 - [x] Mammoth and game Loop text game(Course for C# would take roughly 15-20hrs)
 - [x] Linear Algebra (introduction to game development and general understanding ~30hrs-40hrs)
-- [ ] Unity Course (~36hrs)
-- [ ] Flappy Bird (~20hrs?)
+- [x] Unity Course and Flappy Bird (~60-70hrs)
+- [ ] Crossy Road
 - [ ] Tetris (~20hrs?)
 - [ ] Rubik's Cube (~30hrs with Unity?)
 
@@ -28,6 +28,8 @@ Use this guide as a base, but not too seriously...
 ## Unity summary notes
 
 MonoBehaviors and read about their documentation in general to have a good grasp of what is going on.
+Game Pooling good vs. general spawn and destroy constantly.
+
 
 ## Resources
 
@@ -47,5 +49,10 @@ Some Resources can be found in each project folder worked on too.
 ## TODO
 
 - [ ] Focus in game physics with Unity
-- [ ] Reposition player and pipes to display birp after dying
+- [ ] KISS
+- [ ] General Aspect Ratio Canvas
+- [ ] Simple Collision
+- [ ] Singleton
+- [ ] Reset game option
+- [x] Reposition player and pipes to display birp after dying
 - [ ] Restructure directories
