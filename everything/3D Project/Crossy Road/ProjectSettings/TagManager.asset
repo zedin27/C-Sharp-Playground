@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Singleton
+  - Plank
+  - Obstacle
+  - River
+  - Coin
   layers:
   - Default
   - TransparentFX
