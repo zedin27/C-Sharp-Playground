@@ -15,7 +15,7 @@ public class AnimationControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Bounce bounceScript = thePlayer.GetComponent<Bounce>();
+        PlayerControl bounceScript = thePlayer.GetComponent<PlayerControl>();
 
         if (bounceScript.justJump == true)
             animatorScript.SetBool("Jump", true);

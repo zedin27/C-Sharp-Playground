@@ -15,7 +15,9 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        MasterSingleton.main.printSomething();
+        if (MasterSingleton.main != null)
+            MasterSingleton.main.printSomething();
+        return ;
     }
 
     void Update()
