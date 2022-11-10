@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - River
   - Coin
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

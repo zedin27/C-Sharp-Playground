@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+** CrossPlatform InputManager: https://medium.com/nerd-for-tech/cross-platform-input-in-unity-db165de74a29
+*/
+
 public class PlayerControl : MonoBehaviour
 {
     public float lerpTime;
     public float currentLerpTime;
     public float changeRatio = 1;
     bool firstInput;
+    private float horizontalMove; //Unused atm
+    private float verticalMove; //Unused atm
     public bool justJump;
-
+    int zRange = 11;
     Vector3 startPos;
     Vector3 endPos;
 
+    public bool GetfirstInput()
+    {
+        return firstInput;
+    }
     void Start()
     {
         if (MasterSingleton.main != null)
@@ -20,8 +30,16 @@ public class PlayerControl : MonoBehaviour
         return ;
     }
 
+    void handleRotation()
+    {
+
+    }
     void Update()
     {
+        // horizontalMove = Input.GetAxis("Horizontal"); // d key changes value to 1, a key changes value to -1
+        // verticalMove = Input.GetAxis("Vertical"); // w key changes value to 1, s key changes value to -1
+        // Vector3 movement = new Vector3(horizontalMove, 0, verticalMove);
+
         if (Input.GetButtonDown("up") || Input.GetButtonDown("left") || Input.GetButtonDown("right") || Input.GetButtonDown("down"))
         {
             if (changeRatio == 1)
@@ -61,4 +79,5 @@ public class PlayerControl : MonoBehaviour
                 justJump = false;
         }
     }
+
 }
