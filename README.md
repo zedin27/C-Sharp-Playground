@@ -30,7 +30,6 @@ Use this guide as a base, but not too seriously...
 MonoBehaviors and read about their documentation in general to have a good grasp of what is going on.
 Game Pooling good vs. general spawn and destroy constantly.
 
-
 ## Resources
 
 Some Resources can be found in each project folder worked on too.
