@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject Water;
+    public GameObject Grass;
+    public GameObject Road;
 
-    // Update is called once per frame
+    private Vector3 intPos = new Vector3(0, 0, 0);
+    private int firstRand;
+    private int secondRand;
+    private int distancePlayer;
+
     void Update()
     {
-        
+        if (Input.GetButtonDown("up"))
+        {
+            firstRand = Random.Range(1, 4);
+            if (firstRand == 1)
+            {
+                secondRand = Random.Range(1, 8);
+                for (int i = 0; i < secondRand; i++)
+                {
+                    intPos = new Vector3(0, 0, distancePlayer);
+                    distancePlayer++;
+                    
+                }
+            }
+        }
     }
 }

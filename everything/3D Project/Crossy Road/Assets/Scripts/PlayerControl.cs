@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     private float horizontalMove; //Unused atm
     private float verticalMove; //Unused atm
     public bool justJump;
+    public bool moved;
     int zRange = 11;
     Vector3 startPos;
     Vector3 endPos;
@@ -30,10 +31,6 @@ public class PlayerControl : MonoBehaviour
         return ;
     }
 
-    void handleRotation()
-    {
-
-    }
     void Update()
     {
         // horizontalMove = Input.GetAxis("Horizontal"); // d key changes value to 1, a key changes value to -1
@@ -70,6 +67,7 @@ public class PlayerControl : MonoBehaviour
         }
         if (firstInput == true)
         {
+            moved = true;
             currentLerpTime += Time.deltaTime * 4.2f;
             changeRatio = currentLerpTime / lerpTime;
             gameObject.transform.position = Vector3.Lerp(startPos, endPos, changeRatio);
@@ -77,7 +75,7 @@ public class PlayerControl : MonoBehaviour
                 changeRatio = 1;
             if (Mathf.Round(changeRatio) == 1)
                 justJump = false;
+            // firstInput = false;
         }
     }
-
 }
