@@ -16,9 +16,17 @@ public class PlayerControl : MonoBehaviour
     private float verticalMove; //Unused atm
     public bool justJump;
     public bool moved;
+    public bool currentlyLerping = false;
     int zRange = 11;
     Vector3 startPos;
     Vector3 endPos;
+
+    //Stackoverflow one
+    private bool _hasFireFirstInput = false;
+    private bool _isIdle = true;
+
+    public bool IsIdle => _isIdle;
+    public bool HasFireFirstInput => _hasFireFirstInput;
 
     public bool GetfirstInput()
     {
@@ -37,12 +45,14 @@ public class PlayerControl : MonoBehaviour
         // verticalMove = Input.GetAxis("Vertical"); // w key changes value to 1, s key changes value to -1
         // Vector3 movement = new Vector3(horizontalMove, 0, verticalMove);
 
+        print($"IsIdle: {IsIdle}");
         if (Input.GetButtonDown("up") || Input.GetButtonDown("left") || Input.GetButtonDown("right") || Input.GetButtonDown("down"))
         {
             if (changeRatio == 1)
             {
                 lerpTime = 1;
                 currentLerpTime = 0;
+                currentlyLerping = true;
                 firstInput = true;
                 justJump = true;
             }
@@ -72,10 +82,12 @@ public class PlayerControl : MonoBehaviour
             changeRatio = currentLerpTime / lerpTime;
             gameObject.transform.position = Vector3.Lerp(startPos, endPos, changeRatio);
             if (changeRatio > 0.8f)
+            {
+                currentlyLerping = false;
                 changeRatio = 1;
+            }
             if (Mathf.Round(changeRatio) == 1)
                 justJump = false;
-            // firstInput = false;
         }
     }
 }

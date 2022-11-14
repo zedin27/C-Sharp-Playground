@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GUIManager : MonoBehaviour
 {
+    public bool gameOver = false;
+
+    // public bool _gameOver => gameOver;
     // Start is called before the first frame update
     void Start()
     {

@@ -12,7 +12,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    public PlayerControl playerControlScript;
+    public PlayerControl2 playerControlScript;
     // public Camera mainCamera;
     private Vector3 offset;
     private Vector3 playerPositionLast;
@@ -27,24 +27,33 @@ public class CameraController : MonoBehaviour
         stillIdle = false;
         playerPositionLast = player.transform.position; 
         offset = transform.position - player.transform.position;
-        PlayerControl playerControlScript = GetComponent<PlayerControl>();
+        PlayerControl2 playerControlScript = GetComponent<PlayerControl2>();
     }
 
     void LateUpdate()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (playerControlScript.GetfirstInput()) //True
+        if (!playerControlScript.HasFireFirstInput)
+            return;
+        if (playerControlScript.IsIdle)
+            transform.position = new Vector3(transform.position.x + 0.69f * Time.deltaTime, transform.position.y, transform.position.z);
+        else //not idle, then lerp to player's position
         {
-            stillIdle = true;
-            newCameraPos = Vector3.Lerp(transform.position, playerControlScript.transform.position, Time.deltaTime);
+            newCameraPos = Vector3.Lerp(transform.position, 
+            playerControlScript.transform.position, Time.deltaTime); 
             transform.position = new Vector3(newCameraPos.x, 1, newCameraPos.z);
-            print("offset: " + offset);
         }
-        if (stillIdle && playerControlScript.GetfirstInput())
-        {
-            playerControlScript.GetfirstInput();
-            transform.position = new Vector3(transform.position.x + 0.69f * Time.deltaTime, transform.position.y, transform.position.z); //Moving camera away effect
-        }
+        // player = GameObject.FindGameObjectWithTag("Player");
+        // if (playerControlScript.GetfirstInput()) //True
+        // {
+        //     stillIdle = true;
+        //     newCameraPos = Vector3.Lerp(transform.position, playerControlScript.transform.position, Time.deltaTime);
+        //     transform.position = new Vector3(newCameraPos.x, 1, newCameraPos.z);
+        //     print("offset: " + offset);
+        // }
+        // if (stillIdle && !playerControlScript.justJump)
+        // {
+        //     transform.position = new Vector3(transform.position.x + 0.69f * Time.deltaTime, transform.position.y, transform.position.z); //Moving camera away effect
+        // }
     }
 }
 

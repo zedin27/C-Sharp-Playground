@@ -10,6 +10,7 @@ TagManager:
   - River
   - Coin
   - SpawnPoint
+  - Tree
   layers:
   - Default
   - TransparentFX
