@@ -11,6 +11,8 @@ TagManager:
   - Coin
   - SpawnPoint
   - Tree
+  - Vehicle
+  - Walkable
   layers:
   - Default
   - TransparentFX

@@ -34,26 +34,30 @@ public class PlayerControl2 : MonoBehaviour
 
                     Vector3 pos = transform.position;
                     gameObject.transform.position = Vector3.Lerp(startPos, endPos, changeRatio);
-                    pos = new Vector3(pos.x, pos.y, pos.z + .2f * Time.deltaTime);
+                    pos = new Vector3(pos.x, pos.y, pos.z + .3f * Time.deltaTime);
                 }
             }
             else
                 _isIdle = true;
             if (Input.GetButtonDown("up") && gameObject.transform.position == endPos)
             {
-                endPos = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+                endPos = transform.position;
+                endPos = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
             }
             if (Input.GetButtonDown("down") && gameObject.transform.position == endPos)
             {
-                endPos = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+                endPos = transform.position;
+                endPos = new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z);
             }
             if (Input.GetButtonDown("left") && gameObject.transform.position == endPos)
             {
-                endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+                endPos = transform.position;
+                endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
             }
             if (Input.GetButtonDown("right") && gameObject.transform.position == endPos)
             {
-                endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+                endPos = transform.position;
+                endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
             }
         }
         else
