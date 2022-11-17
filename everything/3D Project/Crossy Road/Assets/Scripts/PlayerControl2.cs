@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+** Camera Viewport limithttps://docs.unity3d.com/ScriptReference/Camera.WorldToViewportPoint.html
+*/
 public class PlayerControl2 : MonoBehaviour
 {
     private bool _hasFireFirstInput = false;
@@ -13,62 +16,79 @@ public class PlayerControl2 : MonoBehaviour
 
     Vector3 startPos;
     Vector3 endPos;
+    Rigidbody rb;
+    Camera cam;
+    public Transform target;
+    
 
     public bool IsIdle => _isIdle;
     public bool HasFireFirstInput => _hasFireFirstInput;
     public bool hit = false;
     public bool isDisabled = false;
-    private float upperBound = 9f; //Maximum range for player to move
+    private float upperBoundZ = 9f; //Maximum range for player to move
 
     //Gameover tutorial
     public bool gameOver = false;
     public bool outOfBounds;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+    }
+
     private void Update()
     {
         if (!gameOver)
         {
-            if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
-            {
-                if (changeRatio == 1)
-                {
-                    lerpTime = 1;
-                    currentLerpTime = 0;
-                    _hasFireFirstInput = true;
-                    _isIdle = false;
-                    outOfBounds = false;
+            Vector3 viewPos = cam.WorldToViewportPoint(target.position);
+            if (viewPos.x <= 0.20f)
+                gameOver = true;
+            Init();
+            MovementBehaviors();
+        }
+    }
 
-                    ActiveVector3();
-                }
-            }
-            else
-                _isIdle = true;
-            if (Input.GetButtonDown("up") && gameObject.transform.position == endPos)
-                endPos = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
-            if (Input.GetButtonDown("down") && gameObject.transform.position == endPos)
-                endPos = new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z);
-            if (Input.GetButtonDown("left") && gameObject.transform.position == endPos && !outOfBounds)
-                endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
-            if (Input.GetButtonDown("right") && gameObject.transform.position == endPos && !outOfBounds)
-                endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
-            if (!outOfBounds)
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+            HitAndDie();
+        if (collision.gameObject.CompareTag("Tree")) //prevent player from moving forward
+        {
+            //I want to stop the player from moving forward after here
+            print("I'm touching some grass ( ͡° ͜ʖ ͡°)");
+        }
+    }
+
+    private void Init()
+    {
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            if (changeRatio == 1)
             {
-                if (transform.position.z >= upperBound)
-                {
-                    outOfBounds = true;
-                    transform.position = new Vector3(transform.position.x, transform.position.y, upperBound);
-                }
-                if (transform.position.z <= -upperBound)
-                {
-                    outOfBounds = true;
-                    transform.position = new Vector3(transform.position.x, transform.position.y, -upperBound);
-                }
+                lerpTime = 1;
+                currentLerpTime = 0;
+                _hasFireFirstInput = true;
+                _isIdle = false;
+                outOfBounds = false;
+
+                ActiveVector3();
             }
         }
         else
-            hit = !hit;
+            _isIdle = true;
     }
-
+    private void MovementBehaviors()
+    {
+        if (Input.GetButtonDown("up"))
+            endPos = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
+        if (Input.GetButtonDown("down"))
+            endPos = new Vector3(transform.position.x - 1.5f, transform.position.y, transform.position.z);
+        if (Input.GetButtonDown("left") && !(gameObject.transform.position.z >= 9f))
+            endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
+        if (Input.GetButtonDown("right") && !(gameObject.transform.position.z <= -9f))
+            endPos = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
+    }
     private bool ActiveVector3()
     {
         if (!outOfBounds)
@@ -80,12 +100,6 @@ public class PlayerControl2 : MonoBehaviour
         }
         return false;
     } 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-            HitAndDie();
-    }
     private void HitAndDie()
     {
         if (hit == false)

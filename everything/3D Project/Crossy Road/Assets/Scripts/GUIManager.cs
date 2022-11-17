@@ -9,6 +9,7 @@ public class GUIManager : MonoBehaviour
     public bool gameOver = false;
     public RectTransform Panel;
     [SerializeField] private PlayerControl2 playerControlScript;
+    [SerializeField] private CameraControl2 cameraControlScript;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private Text restartText;
 
@@ -18,6 +19,7 @@ public class GUIManager : MonoBehaviour
         restartText.gameObject.SetActive(false);
         Panel.localScale = new Vector3(0, 0);
         playerControlScript = GameObject.Find("ParentPlayer").GetComponent<PlayerControl2>();
+        cameraControlScript = GameObject.Find("Main Camera").GetComponent<CameraControl2>();
     }
 
     void Update()
@@ -52,6 +54,8 @@ public class GUIManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H))
             Panel.localScale = new Vector3(0.5f, 1, 0.5f);
+        // if (cameraControlScript.transform.position.x >= 10f)
+        //     gameOver
     }
     private IEnumerator GameOverSequence()
     {

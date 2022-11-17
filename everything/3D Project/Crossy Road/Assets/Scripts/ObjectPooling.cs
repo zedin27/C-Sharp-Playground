@@ -21,7 +21,7 @@ public class ObjectPooling : MonoBehaviour
     }
     void Start()
     {
-        _playerControllerScript = GameObject.Find("Player").GetComponent<PlayerControl2>();
+        _playerControllerScript = GameObject.Find("PlayerObject").GetComponent<PlayerControl2>();
         pooledObjects = new List<GameObject>();
         GameObject tmp;
 

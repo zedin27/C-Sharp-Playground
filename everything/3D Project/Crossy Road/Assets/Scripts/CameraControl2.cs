@@ -27,14 +27,13 @@ public class CameraControl2 : MonoBehaviour
     private void MoveAway()
     {
         _iskeepLerping = false;
-        transform.position = new Vector3(transform.position.x + 0.69f * Time.deltaTime, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x + 1f * Time.deltaTime, transform.position.y, transform.position.z);
     }
 
     private void Lerp()
     {
         if (!_iskeepLerping)
             _lerpVal = 0f;
-        
         Vector3 newCameraPos = Vector3.Lerp(transform.position, _playerControlScript.transform.position + _offset, _lerpVal);
         transform.position = newCameraPos;
         _lerpVal += _lerpSpeed * Time.deltaTime;
