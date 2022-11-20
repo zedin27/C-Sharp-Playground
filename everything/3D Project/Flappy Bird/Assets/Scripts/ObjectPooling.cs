@@ -1,11 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 /*
 ** Object Pooling: https://www.youtube.com/watch?v=YCHJwnmUGDk&ab_channel=JasonWeimann
 ** 
 */
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {

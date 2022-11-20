@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
     {
-        if (playerControllerScript.gameOver == false)
+        if (!playerControllerScript.gameOver)
         {
             float randomY = Random.Range(-2f, 2f);
             Vector3 randomHeight = new Vector3(35, randomY, -7);
