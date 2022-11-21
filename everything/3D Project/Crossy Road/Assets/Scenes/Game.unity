@@ -434,10 +434,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c0caa51611c462f92f99e7b2b1155d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Water: {fileID: 431717542}
-  Grass: {fileID: 1684524259}
-  Road: {fileID: 542384876}
   Player: {fileID: 1178324460}
+  Field:
+  - spawnField: {fileID: 1684524259}
+    minProbabilityRange: 0
+    maxProbabilityRange: 400
+  - spawnField: {fileID: 542384876}
+    minProbabilityRange: 401
+    maxProbabilityRange: 800
+  - spawnField: {fileID: 431717542}
+    minProbabilityRange: 801
+    maxProbabilityRange: 1000
   SpawnObjectTrees:
   - {fileID: 1014037036}
   - {fileID: 2085339202}
@@ -454,6 +461,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  startDelay: 1.69
+  repeatRate: 1.1
 --- !u!1001 &88800168
 PrefabInstance:
   m_ObjectHideFlags: 0
