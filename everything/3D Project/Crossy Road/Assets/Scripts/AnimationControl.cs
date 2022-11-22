@@ -6,14 +6,10 @@ public class AnimationControl : MonoBehaviour
 {
     Animator animatorScript;
     public GameObject thePlayer;
-    // Start is called before the first frame update
     void Start()
     {
         animatorScript = gameObject.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-
     void handleAnimation()
     {
         bool isIdle = animatorScript.GetBool("Idle");
@@ -21,7 +17,7 @@ public class AnimationControl : MonoBehaviour
     }
     void Update()
     {
-        PlayerControl playerControlScript = thePlayer.GetComponent<PlayerControl>();
+        PlayerControl2 playerControlScript = thePlayer.GetComponent<PlayerControl2>();
 
         if (playerControlScript.justJump == true)
             animatorScript.SetBool("Jump", true);

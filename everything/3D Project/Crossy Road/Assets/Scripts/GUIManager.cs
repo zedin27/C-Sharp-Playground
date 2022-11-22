@@ -29,14 +29,6 @@ public class GUIManager : MonoBehaviour
 
     public void DeathScreen()
     {
-        // if (playerControlScript.hit || playerControlScript.gameOver || playerControlScript.carry)
-        // {
-        //     print("playerControlScript");
-        //     Panel.localScale = new Vector3(0.5f, 1, 0.5f);
-        //     gameOver = true;
-        //     playerControlScript.gameOver = gameOver;
-        //     StartCoroutine(GameOverSequence());
-        // }
         if ((Input.GetKeyDown(KeyCode.G) && !gameOver))
         {
             print("Debug");
@@ -54,8 +46,6 @@ public class GUIManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H))
             Panel.localScale = new Vector3(0.5f, 1, 0.5f);
-        // if (cameraControlScript.transform.position.x >= 10f)
-        //     gameOver
     }
     private IEnumerator GameOverSequence()
     {
