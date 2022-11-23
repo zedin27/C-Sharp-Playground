@@ -14,6 +14,7 @@ TagManager:
   - Vehicle
   - Walkable
   - Grass
+  - Road
   layers:
   - Default
   - TransparentFX

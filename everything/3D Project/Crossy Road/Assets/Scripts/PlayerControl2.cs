@@ -106,9 +106,7 @@ public class PlayerControl2 : MonoBehaviour
     {
         if (!outOfBounds)
         {
-            print(transform.position);
             Vector3 pos = transform.position;
-            print(pos);
             gameObject.transform.position = Vector3.Lerp(startPos, endPos, changeRatio);
             pos = new Vector3(pos.x, pos.y, pos.z + .3f * Time.deltaTime);
             return true;

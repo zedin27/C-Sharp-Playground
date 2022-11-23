@@ -18,20 +18,30 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] SpawnObjectTrees;
     public GameObject[] SpawnObjectVehicles; //different vehicles
     public GameObject[] SpawnObjectPlanks; //3 sizes (small, medium, large)
+    private Vector3 initialObjectSpawn;
     private PlayerControl2 playerControlScript;
-    private int firstRand;
-    private int secondRand;
+    private MoveHorizontal moveHorizontalScript;
     private int distancePlayer;
+    private int toggle;
     private bool keepSpawning;
+    private bool moveLeft = false; //TODO: try to attach the MoveHorizontal script
+    private bool moveRight = false;
+    bool vehicleFlag = false;
+    bool plankFlag = false;
     private float currentPos;
     private float lastPos;
+    public float randomNumSpawn;
+    public float speed;
 
     void Awake()
     {
+        
         keepSpawning = true;
+        initialObjectSpawn = transform.position;
         lastPos = Player.transform.position.x;
         playerControlScript = GameObject.Find("PlayerObject").GetComponent<PlayerControl2>();
-        Invoke("RandomIntervalRateSpawn", 0.5f); //make random interval between two float values with a constant delay (or vice-versa)
+        moveHorizontalScript = GetComponent<MoveHorizontal>();
+        InvokeRepeating("RandomIntervalRateSpawn", 3f, randomNumSpawn);
     }
 
     void Update()
@@ -42,10 +52,30 @@ public class SpawnManager : MonoBehaviour
 
     void RandomIntervalRateSpawn() //These are used for the planks and vehicles (still not attached to the objects yet)
     {
-        float randomNum = Random.Range(3.69f, 4.2f);
-        float speed = Random.Range(4.0f, 9.69f);
-        Invoke("RandomIntervalRateSpawn", randomNum);
-        print(randomNum);
+        int randomLeft = Random.Range(0, 3);
+        int randomRight = Random.Range(3, 5);
+        bool activeLeft = false;
+        bool activeRight = false;
+
+        if (vehicleFlag)
+        {
+            for (int i = 0; i < SpawnObjectVehicles.Length; i++)
+            {
+                toggle = Random.Range(0, 2);
+                if (toggle == 1 && !activeLeft)
+                {
+                    activeLeft = true;
+                    SpawnObjectVehicles[i].SetActive(true);
+                }
+                if (toggle == 0 && !activeRight)
+                {
+                    activeRight = true;
+                    SpawnObjectVehicles[i].SetActive(true);
+                }
+                else
+                    SpawnObjectVehicles[i].SetActive(false);
+            }
+        }
     }
 
     void SpawnField()
@@ -66,8 +96,20 @@ public class SpawnManager : MonoBehaviour
                     GameObject Surface = Instantiate(Field[j].spawnField);
                     if (Surface.CompareTag("Grass"))
                         TreeToggle();
+                    if (Surface.CompareTag("Road"))
+                    {
+                        vehicleFlag = true;
+                        VehicleToggle();
+                    }
+                    // if (Surface.CompareTag("River"))
+                    // {
+                    //     plankFlag = true;
+                    //     PlankToggle();
+                    // }
                     //Add spawn for vehicles and planks with given spawnrate/spawn intervals
                     Surface.transform.position = intPos;
+                    vehicleFlag = false;
+                    plankFlag = false;
                 }
             }
         }
@@ -91,6 +133,8 @@ public class SpawnManager : MonoBehaviour
     {
         // I have Left and Right with 2 vehicles in each. My goal is to setActive one of them each side at a time with a different interval spawnrate and speed
         RandomIntervalRateSpawn();
+        print(randomNumSpawn);
+
         
     }
     

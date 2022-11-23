@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class MoveHorizontal : MonoBehaviour
 {
-    public float speed = 8;
-    private float zBoundary = 10f;
+    public float speed;
+    public float randomNumSpawn;
     private PlayerControl2 playerControllerScript;
-    // Start is called before the first frame update
     void Start()
     {
+        speed = Random.Range(4.0f, 9.69f);
+        randomNumSpawn = Random.Range(3.69f, 4.2f);
         playerControllerScript = GameObject.Find("PlayerObject").GetComponent<PlayerControl2>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (playerControllerScript.gameOver == false)
