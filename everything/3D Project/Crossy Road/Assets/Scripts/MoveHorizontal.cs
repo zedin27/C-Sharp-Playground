@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MoveHorizontal : MonoBehaviour
 {
-    public float speed;
+    public int speed;
     public float randomNumSpawn;
     private PlayerControl2 playerControllerScript;
     void Start()
     {
-        speed = Random.Range(4.0f, 9.69f);
+        speed = Random.Range(4, 10);
         randomNumSpawn = Random.Range(3.69f, 4.2f);
         playerControllerScript = GameObject.Find("PlayerObject").GetComponent<PlayerControl2>();
     }

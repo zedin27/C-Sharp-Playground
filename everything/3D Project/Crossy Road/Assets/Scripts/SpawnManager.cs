@@ -7,7 +7,8 @@ using UnityEngine;
 ** Scriptable Object Weight spawn example: https://www.youtube.com/watch?v=FCksj9ofUgI&ab_channel=LlamAcademy
 ** From scratch loot tables with Scriptable Objects to make a loot table: https://www.youtube.com/watch?v=tX3RWsVLnzM&ab_channel=GregDevStuff
 ** Creating a random with an animation curve: https://www.youtube.com/watch?v=zw1OERK5xvU&ab_channel=HamzaHerbou
-** 
+** Random Vehicle position spawn (maybe this can help me): https://stackoverflow.com/questions/51312481/move-spawn-object-to-random-position
+** TODO: Prefab shit has to be unpacked and used only once, not having multiple vehicles(n)
 ** 
 */
 
@@ -18,30 +19,25 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] SpawnObjectTrees;
     public GameObject[] SpawnObjectVehicles; //different vehicles
     public GameObject[] SpawnObjectPlanks; //3 sizes (small, medium, large)
+    public GameObject TryingOutThisVehicleSpawn;
     private Vector3 initialObjectSpawn;
     private PlayerControl2 playerControlScript;
-    private MoveHorizontal moveHorizontalScript;
     private int distancePlayer;
     private int toggle;
     private bool keepSpawning;
-    private bool moveLeft = false; //TODO: try to attach the MoveHorizontal script
-    private bool moveRight = false;
     bool vehicleFlag = false;
     bool plankFlag = false;
     private float currentPos;
     private float lastPos;
     public float randomNumSpawn;
-    public float speed;
 
     void Awake()
     {
-        
         keepSpawning = true;
         initialObjectSpawn = transform.position;
         lastPos = Player.transform.position.x;
         playerControlScript = GameObject.Find("PlayerObject").GetComponent<PlayerControl2>();
-        moveHorizontalScript = GetComponent<MoveHorizontal>();
-        InvokeRepeating("RandomIntervalRateSpawn", 3f, randomNumSpawn);
+        InvokeRepeating("Spawner", 3f, randomNumSpawn);
     }
 
     void Update()
@@ -50,27 +46,31 @@ public class SpawnManager : MonoBehaviour
             SpawnField();
     }
 
-    void RandomIntervalRateSpawn() //These are used for the planks and vehicles (still not attached to the objects yet)
+    void Spawner() //These are used for the planks and vehicles (still not attached to the objects yet)
     {
-        int randomLeft = Random.Range(0, 3);
-        int randomRight = Random.Range(3, 5);
         bool activeLeft = false;
         bool activeRight = false;
 
         if (vehicleFlag)
         {
+            print(initialObjectSpawn);
             for (int i = 0; i < SpawnObjectVehicles.Length; i++)
             {
+                print($"{SpawnObjectVehicles[i]}: {SpawnObjectVehicles[i].transform.position}");
                 toggle = Random.Range(0, 2);
                 if (toggle == 1 && !activeLeft)
                 {
                     activeLeft = true;
                     SpawnObjectVehicles[i].SetActive(true);
+                    // if (SpawnObjectVehicles[i].transform.position.z >= 1.8f)
+                    //     print("gtfo from left");
                 }
                 if (toggle == 0 && !activeRight)
                 {
                     activeRight = true;
                     SpawnObjectVehicles[i].SetActive(true);
+                    // if (SpawnObjectVehicles[i].transform.position.z >= 1.8f)
+                    //     print("reset my position from right");
                 }
                 else
                     SpawnObjectVehicles[i].SetActive(false);
@@ -132,15 +132,12 @@ public class SpawnManager : MonoBehaviour
     void VehicleToggle()
     {
         // I have Left and Right with 2 vehicles in each. My goal is to setActive one of them each side at a time with a different interval spawnrate and speed
-        RandomIntervalRateSpawn();
-        print(randomNumSpawn);
-
-        
+        Spawner();
     }
     
     void PlankToggle()
     {
-        RandomIntervalRateSpawn();
+        Spawner();
     }
 }
 
